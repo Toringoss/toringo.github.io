@@ -1,0 +1,422 @@
+
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Toringo&#39;s blog">
+    <title>es6常见的变量解构，对象的合并 - Toringo&#39;s blog</title>
+    <meta name="author" content="Toringo">
+    
+    
+    
+    <meta name="description" content="开发的过程中，尤其是在处理react中reducer或者将获取到的参数合并到一个对象中去，es6的信誉发带来了极大便利。">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="es6常见的变量解构，对象的合并">
+<meta property="og:url" content="https://toringo.github.io/2016/11/17/es6/index.html">
+<meta property="og:site_name" content="Toringo's blog">
+<meta property="og:description" content="开发的过程中，尤其是在处理react中reducer或者将获取到的参数合并到一个对象中去，es6的信誉发带来了极大便利。">
+<meta property="og:updated_time" content="2016-11-19T12:41:09.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="es6常见的变量解构，对象的合并">
+<meta name="twitter:description" content="开发的过程中，尤其是在处理react中reducer或者将获取到的参数合并到一个对象中去，es6的信誉发带来了极大便利。">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="https://toringo.github.io/assets/images/champion.png"/>
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-nuvue6sithwirecbhvw3dkaobiojqvtadsnhguwi7k04xklybw5djl1smadp.min.css">
+    <!--STYLES END-->
+    
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-85099518-1']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+<header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Toringo&#39;s blog</a>
+    </h1>
+    
+        
+            <a  class="header-right-icon open-algolia-search"
+                href="#search">
+        
+        
+            <i class="fa fa-lg fa-search"></i>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+
+        
+    
+
+<nav id="sidebar" data-behavior="3">
+    
+        <div class="sidebar-profile">
+            <a href="/#about">
+                    <img class="sidebar-profile-picture" src="/assets/images/champion.png"/>
+            </a>
+            <span class="sidebar-profile-name">Toringo</span>
+        </div>
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Home</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categories</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Tags</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archives</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">About</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://github.com/guotao007" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+                    <span class="sidebar-button-desc">GitHub</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="mailto:dashentao007@163.com" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-envelope-o"></i>
+                    <span class="sidebar-button-desc">Mail</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="3"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            es6常见的变量解构，对象的合并
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" datetime="2016-11-17T07:42:59+08:00">
+	
+		    Nov 17, 2016
+    	
+    </time>
+    
+</div>
+
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <blockquote>
+<p>开发的过程中，尤其是在处理react中reducer或者将获取到的参数合并到一个对象中去，es6的信誉发带来了极大便利。</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="场景一-合并两个没有交集的对象"><a href="#场景一-合并两个没有交集的对象" class="headerlink" title="场景一: 合并两个没有交集的对象"></a>场景一: 合并两个没有交集的对象</h3><p><em>“…”的用法：</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">const a = &#123;</div><div class="line">	name: &apos;ds&apos;,</div><div class="line">	age: &apos;23&apos;,</div><div class="line">&#125;;</div><div class="line">const b = &#123;</div><div class="line">	birthday: &apos;2012-8-23&apos;,</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>想要合并a和b对象，得到c对象：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">const c = &#123;</div><div class="line">	...a,</div><div class="line">	...b</div><div class="line">&#125;</div><div class="line">console.log(c);   // 返回的是</div><div class="line">&#123;</div><div class="line">  &quot;age&quot;: &quot;23&quot;,</div><div class="line">  &quot;birthday&quot;: &quot;2012-8-23&quot;,</div><div class="line">  &quot;name&quot;: &quot;ds&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>结论： <em>…</em>是并集。<br><em>Object.assign</em>的用法：</p>
+<p>将a和b合并成c:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">const c = Object.assign(a, b); </div><div class="line">console.log(c);     //返回的如下</div><div class="line"></div><div class="line">Object &#123;</div><div class="line">  &quot;age&quot;: &quot;23&quot;,</div><div class="line">  &quot;birthday&quot;: &quot;2012-8-23&quot;,</div><div class="line">  &quot;name&quot;: &quot;ds&quot;</div><div class="line">&#125;</div><div class="line"></div><div class="line">console.log(a);  //返回的</div><div class="line">Object &#123;</div><div class="line">  &quot;age&quot;: &quot;23&quot;,</div><div class="line">  &quot;birthday&quot;: &quot;2012-8-23&quot;,</div><div class="line">  &quot;name&quot;: &quot;ds&quot;</div><div class="line">&#125;</div><div class="line">console.log(b);  //返回如下：</div><div class="line">Object &#123;</div><div class="line">  &quot;birthday&quot;: &quot;2012-8-23&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><code>Object.assign()</code>合并对象；是将后面的不断复制到前面的，所以a收到了影响。如果key相同则覆盖对应的value值。为了让a不受到影响，做法：<br><code>Object.assign({}, a, b);</code>,这样a对象不会受到影响</p>
+<h3 id="场景二：-合并有交集的对象"><a href="#场景二：-合并有交集的对象" class="headerlink" title="场景二： 合并有交集的对象"></a>场景二： 合并有交集的对象</h3><p><em>‘…’的用法</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">const initialState = &#123;</div><div class="line">  fetching: &#123;</div><div class="line">    is: true,</div><div class="line">  &#125;,</div><div class="line">  data: [676,343],</div><div class="line">  total: 0,</div><div class="line">&#125;;</div><div class="line">const app = &#123;</div><div class="line">  fetching: true,</div><div class="line">  data: [23],</div><div class="line">  ...initialState</div><div class="line">&#125;</div><div class="line">console.log(app);    //返回的如下：</div><div class="line"></div><div class="line">Object &#123;</div><div class="line">  &quot;data&quot;: Array [</div><div class="line">    676,</div><div class="line">    343</div><div class="line">  ],</div><div class="line">  &quot;fetching&quot;: Object &#123;</div><div class="line">    &quot;is&quot;: true</div><div class="line">  &#125;,</div><div class="line">  &quot;total&quot;: 0</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>结论： 在变量结构之前，如果已经存在的key相同的value值会被替换成对应解构对象中的key-value值。</p>
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/es6/">es6</a>
+
+            </div>
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/11/20/path/"  data-tooltip="node环境中几种路径">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/11/03/cookies/" data-tooltip="web储存">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://toringo.github.io/2016/11/17/es6/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://toringo.github.io/2016/11/17/es6/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://toringo.github.io/2016/11/17/es6/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2016 Toringo. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/11/20/path/"  data-tooltip="node环境中几种路径">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/11/03/cookies/" data-tooltip="web储存">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://toringo.github.io/2016/11/17/es6/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://toringo.github.io/2016/11/17/es6/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://toringo.github.io/2016/11/17/es6/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://toringo.github.io/2016/11/17/es6/">
+                <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://toringo.github.io/2016/11/17/es6/">
+                <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://toringo.github.io/2016/11/17/es6/">
+                <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        
+
+
+    
+        
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="/assets/images/champion.png"/>
+        
+            <h4 id="about-card-name">Toringo</h4>
+        
+            <h5 id="about-card-bio"><p>author.bio</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </h5>
+        
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script-i4qo6jx6jji9fg0dftpya6ivemizsbow4fhow76d8dwpm7m1wbvi378ssumx.min.js"></script>
+<!--SCRIPTS END-->
+
+    
+
+
+
+</html>

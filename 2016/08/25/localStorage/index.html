@@ -1,0 +1,443 @@
+
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Toringo&#39;s blog">
+    <title>localstorage本地存储 - Toringo&#39;s blog</title>
+    <meta name="author" content="Toringo">
+    
+    
+    
+    <meta name="description" content="在开发中常遇到页面间信息传递的问题，如点击某个按钮要将页面的某些内容带到下个页面展示，起初我们用的方法是：将所需要的内容以参数的形式绑定在url后面，如：www.*.com?id=23&amp;amp;companyName=CDH，这种有很大弊端就是信息直接暴露在用户眼前，用户还可更改url的信息导致页面展示内容发生改变，所以我们摒弃这种用法，寻求更优的localStorage本地存储的方法，具体用法见">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="localstorage本地存储">
+<meta property="og:url" content="https://toringo.github.io/2016/08/25/localStorage/index.html">
+<meta property="og:site_name" content="Toringo's blog">
+<meta property="og:description" content="在开发中常遇到页面间信息传递的问题，如点击某个按钮要将页面的某些内容带到下个页面展示，起初我们用的方法是：将所需要的内容以参数的形式绑定在url后面，如：www.*.com?id=23&amp;amp;companyName=CDH，这种有很大弊端就是信息直接暴露在用户眼前，用户还可更改url的信息导致页面展示内容发生改变，所以我们摒弃这种用法，寻求更优的localStorage本地存储的方法，具体用法见">
+<meta property="og:updated_time" content="2016-08-28T23:19:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="localstorage本地存储">
+<meta name="twitter:description" content="在开发中常遇到页面间信息传递的问题，如点击某个按钮要将页面的某些内容带到下个页面展示，起初我们用的方法是：将所需要的内容以参数的形式绑定在url后面，如：www.*.com?id=23&amp;amp;companyName=CDH，这种有很大弊端就是信息直接暴露在用户眼前，用户还可更改url的信息导致页面展示内容发生改变，所以我们摒弃这种用法，寻求更优的localStorage本地存储的方法，具体用法见">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="https://toringo.github.io/assets/images/champion.png"/>
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-nuvue6sithwirecbhvw3dkaobiojqvtadsnhguwi7k04xklybw5djl1smadp.min.css">
+    <!--STYLES END-->
+    
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-85099518-1']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+<header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Toringo&#39;s blog</a>
+    </h1>
+    
+        
+            <a  class="header-right-icon open-algolia-search"
+                href="#search">
+        
+        
+            <i class="fa fa-lg fa-search"></i>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+
+        
+    
+
+<nav id="sidebar" data-behavior="3">
+    
+        <div class="sidebar-profile">
+            <a href="/#about">
+                    <img class="sidebar-profile-picture" src="/assets/images/champion.png"/>
+            </a>
+            <span class="sidebar-profile-name">Toringo</span>
+        </div>
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Home</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categories</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Tags</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archives</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">About</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://github.com/guotao007" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+                    <span class="sidebar-button-desc">GitHub</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="mailto:dashentao007@163.com" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-envelope-o"></i>
+                    <span class="sidebar-button-desc">Mail</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="3"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            localstorage本地存储
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" datetime="2016-08-25T22:28:05+08:00">
+	
+		    Aug 25, 2016
+    	
+    </time>
+    
+</div>
+
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p>在开发中常遇到页面间信息传递的问题，如点击某个按钮要将页面的某些内容带到下个页面展示，起初我们用的方法是：将所需要的内容以参数的形式绑定在url后面，如：www.<em>*</em>.com?id=23&amp;companyName=CDH，这种有很大弊端就是信息直接暴露在用户眼前，用户还可更改url的信息导致页面展示内容发生改变，所以我们摒弃这种用法，寻求更优的localStorage本地存储的方法，具体用法见下文：<br><a id="more"></a><br>@js</p>
+<h2 id="localStorage"><a href="#localStorage" class="headerlink" title="localStorage"></a>localStorage</h2><blockquote>
+<p>localStorage存储数据是不带时效性的，可以是一天，一周或者一年，当浏览器关闭又重新打开它任然存在。<br>当手动清除浏览器缓存时它会丢失。</p>
+<h3 id="检查浏览器对localStorage的支持情况："><a href="#检查浏览器对localStorage的支持情况：" class="headerlink" title="检查浏览器对localStorage的支持情况："></a>检查浏览器对localStorage的支持情况：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">'localStorage'</span> <span class="keyword">in</span> <span class="built_in">window</span> &amp;&amp; <span class="built_in">window</span>[<span class="string">'localStorage'</span>]!== <span class="literal">null</span></div></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p>在浏览器控制台输入localStorage可以看到他有哪些方法，我们主要用到有：<br>length：本地存储数据的个数<br>setItem(key,value)：向key字段写入value数据<br>getItem(key)：去key字段的数据<br>removeItem(key)：移除key字段<br>clear()：清空该域下的所有数据<br>key(i)：获取第i个数据的key<br><strong>localStorage</strong>只支持存储字符串，无论你赋给它object、array还是其他，他都会调用toString方法转为string类型存储。<br><strong>将数据存储到localStorage中：</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">localStorage.setItem(<span class="string">'name'</span>,<span class="string">'bhbhbh'</span>) ;   </div><div class="line">localStorage.getItem(<span class="string">'name'</span>) ; <span class="comment">//'bhbhbh'  </span></div><div class="line">localStorage.name = <span class="string">'bhbhbh'</span>    </div><div class="line">localStorage.name;  <span class="comment">//'bhbhbh'</span></div></pre></td></tr></table></figure></p>
+<p>以上两种方法都可将的数值存到localStorage中，读取数据的唯一不同是：<strong>当获取不存在的字段时，localStorage.getItem(‘age’)返回<code>null</code>，localStorage.name返回的是<code>underfined</code></strong></p>
+<ul>
+<li>当我们需要存储json对象时，我们一般这样做：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> data=&#123;</div><div class="line">  <span class="attr">user</span>:<span class="string">"John"</span>,</div><div class="line">  <span class="attr">sex</span>:<span class="string">"female"</span></div><div class="line">&#125;;  </div><div class="line">localStorage.setItem(<span class="string">'data'</span>,<span class="built_in">JSON</span>.stringify(data));  </div><div class="line"><span class="keyword">var</span> data_ = localStorage.getItem(<span class="string">'data'</span>);<span class="comment">//"&#123;"user":"John","sex":"female"&#125;"  </span></div><div class="line"><span class="keyword">var</span> useData = <span class="built_in">JSON</span>.parse(data_) <span class="comment">//object &#123;user: "John", sex: "female"&#125;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>所以我们只要将数据json化和反json化就可做到数据的应用。</p>
+<ul>
+<li><p>存储Array数组时：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var arr = [12,23,4,5];  </div><div class="line">localStorage.setItem('arr',arr);  </div><div class="line">var arr_ = localStorage.getItem('arr’);  </div><div class="line">var data = arr.split(',');  </div><div class="line">data; //[12,23,4,5]</div></pre></td></tr></table></figure>
+</li>
+<li><p>清空localStorage<br>当调用<code>localStorage.clear()</code>时，整个域的数据会被清空，包括和当前页面共享一个存储空间的其他页面。</p>
+</li>
+</ul>
+<hr>
+<h3 id="缺点：不能设置超时时间"><a href="#缺点：不能设置超时时间" class="headerlink" title="缺点：不能设置超时时间"></a>缺点：不能设置超时时间</h3><blockquote>
+<p>在github上找到了开源的Web-storage-cache，封装了许多可用的方法，最大的改进的房发就是可以设置超时时间。详见：<a href="https://wqteam.github.io/web-storage-cache/" target="_blank" rel="external">web-storage-cache</a></p>
+</blockquote>
+<ul>
+<li><p>设置超时时间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let wsCache = new WebStorageCache();  </div><div class="line">wsCache.set(&quot;name&quot;,&quot;taotao&quot;,&#123;exp:10&#125;)  //10秒后获取不到name</div></pre></td></tr></table></figure>
+</li>
+<li><p>给未设置超时的缓存设置超时时间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wsCache.touch(key, exp: 1);</div></pre></td></tr></table></figure>
+</li>
+<li><p>删除缓存</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wsCache.delete();</div></pre></td></tr></table></figure>
+</li>
+<li><p>清除所有缓存</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wsCache.clear();</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p><strong>跟多API用法详见<a href="https://wqteam.github.io/web-storage-cache/" target="_blank" rel="external">web-storage-cache</a></strong></p>
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/08/30/gitBug/"  data-tooltip="git中遇到的问题">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/08/24/javascript中对象/" data-tooltip="辨析 javascript中对象和类的区别和联系">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://toringo.github.io/2016/08/25/localStorage/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://toringo.github.io/2016/08/25/localStorage/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://toringo.github.io/2016/08/25/localStorage/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2016 Toringo. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/08/30/gitBug/"  data-tooltip="git中遇到的问题">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/08/24/javascript中对象/" data-tooltip="辨析 javascript中对象和类的区别和联系">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://toringo.github.io/2016/08/25/localStorage/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://toringo.github.io/2016/08/25/localStorage/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://toringo.github.io/2016/08/25/localStorage/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://toringo.github.io/2016/08/25/localStorage/">
+                <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://toringo.github.io/2016/08/25/localStorage/">
+                <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://toringo.github.io/2016/08/25/localStorage/">
+                <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        
+
+
+    
+        
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="/assets/images/champion.png"/>
+        
+            <h4 id="about-card-name">Toringo</h4>
+        
+            <h5 id="about-card-bio"><p>author.bio</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </h5>
+        
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script-i4qo6jx6jji9fg0dftpya6ivemizsbow4fhow76d8dwpm7m1wbvi378ssumx.min.js"></script>
+<!--SCRIPTS END-->
+
+    
+
+
+
+</html>

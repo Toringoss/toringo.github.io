@@ -1,0 +1,431 @@
+
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Toringo&#39;s blog">
+    <title>node环境中几种路径 - Toringo&#39;s blog</title>
+    <meta name="author" content="Toringo">
+    
+    
+    
+    <meta name="description" content="在研究webpack是遇到文件路径的问题。">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="node环境中几种路径">
+<meta property="og:url" content="https://toringo.github.io/2016/11/20/path/index.html">
+<meta property="og:site_name" content="Toringo's blog">
+<meta property="og:description" content="在研究webpack是遇到文件路径的问题。">
+<meta property="og:updated_time" content="2016-11-21T01:14:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="node环境中几种路径">
+<meta name="twitter:description" content="在研究webpack是遇到文件路径的问题。">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="https://toringo.github.io/assets/images/champion.png"/>
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-nuvue6sithwirecbhvw3dkaobiojqvtadsnhguwi7k04xklybw5djl1smadp.min.css">
+    <!--STYLES END-->
+    
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-85099518-1']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+<header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Toringo&#39;s blog</a>
+    </h1>
+    
+        
+            <a  class="header-right-icon open-algolia-search"
+                href="#search">
+        
+        
+            <i class="fa fa-lg fa-search"></i>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+
+        
+    
+
+<nav id="sidebar" data-behavior="3">
+    
+        <div class="sidebar-profile">
+            <a href="/#about">
+                    <img class="sidebar-profile-picture" src="/assets/images/champion.png"/>
+            </a>
+            <span class="sidebar-profile-name">Toringo</span>
+        </div>
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Home</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categories</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Tags</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archives</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">About</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://github.com/guotao007" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+                    <span class="sidebar-button-desc">GitHub</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="mailto:dashentao007@163.com" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-envelope-o"></i>
+                    <span class="sidebar-button-desc">Mail</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="3"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            node环境中几种路径
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" datetime="2016-11-20T18:29:51+08:00">
+	
+		    Nov 20, 2016
+    	
+    </time>
+    
+</div>
+
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <blockquote>
+<p>在研究webpack是遇到文件路径的问题。</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="filename，filename和process-cwd"><a href="#filename，filename和process-cwd" class="headerlink" title="filename，filename和process.cwd()"></a><strong>filename，</strong>filename和process.cwd()</h3><p>先上代码：在项目更目录新建test.js文件，输入以下代码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">import path from &apos;path&apos;;</div><div class="line">console.log(__dirname);</div><div class="line">console.log(__filename);</div><div class="line">console.log(process.cwd());</div></pre></td></tr></table></figure></p>
+<p>执行<code>babel-node test.js</code>，输出如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">/Users/guotao/individual/webpack/webpack-hot</div><div class="line">/Users/guotao/individual/webpack/webpack-hot/path.js</div><div class="line">/Users/guotao/individual/webpack/webpack-hot</div></pre></td></tr></table></figure></p>
+<p>然后将test.js文件移到<code>src</code>目录下，在src下执行<code>babel-node test.js</code>，输出如下：  </p>
+<pre><code>/Users/guotao/individual/webpack/webpack-hot/src
+/Users/guotao/individual/webpack/webpack-hot/src/path.js
+/Users/guotao/individual/webpack/webpack-hot/src
+</code></pre><p><em>由此推断:</em><br><strong>dirname: 返回被执行的 js 所在文件夹的绝对路径.  
+</strong>filename: 返回被执行js文件的绝对路径。<br>process.cwd(): 返回运行 node 命令时所在的文件夹的绝对路径<br><strong>require() 时才使用相对路径(./, ../) 的写法，其他地方一律使用绝对路径</strong></p>
+<h3 id="nodejs的path对象用法"><a href="#nodejs的path对象用法" class="headerlink" title="nodejs的path对象用法"></a>nodejs的path对象用法</h3><h4 id="常见的方法："><a href="#常见的方法：" class="headerlink" title="常见的方法："></a>常见的方法：</h4><ul>
+<li>path.normalize(p)格式化路径：<br><code>console.log(path.normalize(&#39;/tao//ds/server&#39;));</code><br><code>/tao/ds/server</code></li>
+<li>path.join([path1], [path2], […])路径合并：<br><code>console.log(path.join(&#39;/user/&#39;, &#39;//tao&#39;, &#39;server&#39;));</code><br><code>/user/tao/server</code>  </li>
+<li>path.resolve([from …], to)路径转换：<br>在src目录下执行：<br><code>console.log(__dirname, &#39;..&#39;)</code><br><code>/Users/guotao/individual/webpack/webpack-hot</code>,<br>相当于在当前目录执行<code>cd..</code>命令。</li>
+<li>path.dirname(p)返回路径的所在的文件夹名称<br><code>console.log(path.dirname(&#39;/src/path.js&#39;));</code><br><code>/src</code></li>
+<li>path.sep特定平台的文件分隔符<br><code>console.log(&#39;src/js&#39;.split(path.sep))</code><br><code>[&#39;src&#39;, &#39;js&#39;]</code></li>
+<li>process.argv[1]指向Node.js主程序（入口js文件）的路径（process.argv[0]是node本身的路径）。</li>
+</ul>
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/node/">node</a>
+
+            </div>
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/11/27/css3/"  data-tooltip="css3奇技淫巧">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/11/17/es6/" data-tooltip="es6常见的变量解构，对象的合并">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://toringo.github.io/2016/11/20/path/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://toringo.github.io/2016/11/20/path/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://toringo.github.io/2016/11/20/path/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2016 Toringo. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/11/27/css3/"  data-tooltip="css3奇技淫巧">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/11/17/es6/" data-tooltip="es6常见的变量解构，对象的合并">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://toringo.github.io/2016/11/20/path/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://toringo.github.io/2016/11/20/path/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://toringo.github.io/2016/11/20/path/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://toringo.github.io/2016/11/20/path/">
+                <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://toringo.github.io/2016/11/20/path/">
+                <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://toringo.github.io/2016/11/20/path/">
+                <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        
+
+
+    
+        
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="/assets/images/champion.png"/>
+        
+            <h4 id="about-card-name">Toringo</h4>
+        
+            <h5 id="about-card-bio"><p>author.bio</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </h5>
+        
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script-i4qo6jx6jji9fg0dftpya6ivemizsbow4fhow76d8dwpm7m1wbvi378ssumx.min.js"></script>
+<!--SCRIPTS END-->
+
+    
+
+
+
+</html>

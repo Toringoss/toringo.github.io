@@ -1,0 +1,433 @@
+
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Toringo&#39;s blog">
+    <title>常见的布局方式 - Toringo&#39;s blog</title>
+    <meta name="author" content="Toringo">
+    
+    
+    
+    <meta name="description" content="主要总结常用的css布局方式，有一列定宽一列自适应、多列等比例布局等；">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="常见的布局方式">
+<meta property="og:url" content="https://toringo.github.io/2016/10/07/layoutHtml/index.html">
+<meta property="og:site_name" content="Toringo's blog">
+<meta property="og:description" content="主要总结常用的css布局方式，有一列定宽一列自适应、多列等比例布局等；">
+<meta property="og:updated_time" content="2016-10-07T14:55:40.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="常见的布局方式">
+<meta name="twitter:description" content="主要总结常用的css布局方式，有一列定宽一列自适应、多列等比例布局等；">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="https://toringo.github.io/assets/images/champion.png"/>
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-nuvue6sithwirecbhvw3dkaobiojqvtadsnhguwi7k04xklybw5djl1smadp.min.css">
+    <!--STYLES END-->
+    
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-85099518-1']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+<header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Toringo&#39;s blog</a>
+    </h1>
+    
+        
+            <a  class="header-right-icon open-algolia-search"
+                href="#search">
+        
+        
+            <i class="fa fa-lg fa-search"></i>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+
+        
+    
+
+<nav id="sidebar" data-behavior="3">
+    
+        <div class="sidebar-profile">
+            <a href="/#about">
+                    <img class="sidebar-profile-picture" src="/assets/images/champion.png"/>
+            </a>
+            <span class="sidebar-profile-name">Toringo</span>
+        </div>
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Home</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categories</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Tags</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archives</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">About</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://github.com/guotao007" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+                    <span class="sidebar-button-desc">GitHub</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="mailto:dashentao007@163.com" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-envelope-o"></i>
+                    <span class="sidebar-button-desc">Mail</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="3"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            常见的布局方式
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" datetime="2016-10-07T22:55:40+08:00">
+	
+		    Oct 07, 2016
+    	
+    </time>
+    
+</div>
+
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <blockquote>
+<p>主要总结常用的css布局方式，有一列定宽一列自适应、多列等比例布局等；<br><a id="more"></a></p>
+<h3 id="一列自适应一列固定"><a href="#一列自适应一列固定" class="headerlink" title="一列自适应一列固定"></a>一列自适应一列固定</h3><p>利用border-right和float实现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">.left&#123;	</div><div class="line">		border-right:100px solid #eee;</div><div class="line">		background:#055;</div><div class="line"> 		float:left;</div><div class="line"> 		width:100%;</div><div class="line"> 		box-sizing:border-box;</div><div class="line">&#125;</div><div class="line">.right&#123;</div><div class="line"> 		float:right;</div><div class="line"> 		width:100px;</div><div class="line"> 		margin-left:-100px;</div><div class="line"> 		background:#eee;</div><div class="line">&#125;</div><div class="line">   &lt;/style&gt;</div><div class="line">   &lt;div class=&quot;wrap&quot;&gt;</div><div class="line">   	&lt;div class=&quot;left&quot;&gt;</div><div class="line">   	&lt;/div&gt;</div><div class="line">   	&lt;div class=&quot;right&quot;&gt;</div><div class="line">   	&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>利用margin-left和float实现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">#left &#123;</div><div class="line">	float: left;</div><div class="line">	width: 220px;</div><div class="line">	background-color: red;</div><div class="line">&#125;</div><div class="line">#right &#123;</div><div class="line">	background-color: yellow;</div><div class="line">	margin-left: 220px;/*==等于左边栏宽度==*/</div><div class="line">&#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;div&gt;</div><div class="line">	&lt;div id=&quot;left&quot;&gt;Left sidebar&lt;/div&gt;</div><div class="line">	&lt;div id=&quot;right&quot;&gt;Main Content&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>最神奇最简单的办法：float + overflow<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;parent&quot;&gt;</div><div class="line">  &lt;div class=&quot;left&quot;&gt;</div><div class="line">    &lt;p&gt;left&lt;/p&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">  &lt;div class=&quot;right&quot;&gt;</div><div class="line">    &lt;p&gt;right&lt;/p&gt;</div><div class="line">    &lt;p&gt;right&lt;/p&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;style&gt;</div><div class="line">  .left &#123;</div><div class="line">    float: left;</div><div class="line">    width: 100px;</div><div class="line">  &#125;</div><div class="line">  .right &#123;</div><div class="line">    overflow: hidden;</div><div class="line">  &#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="多列等比例布局"><a href="#多列等比例布局" class="headerlink" title="多列等比例布局"></a>多列等比例布局</h3><p>用float+margin实现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;parent&quot;&gt;</div><div class="line">	&lt;div class=&quot;child1&quot;&gt;1&lt;/div&gt;</div><div class="line">	&lt;div class=&quot;child2&quot;&gt;2&lt;/div&gt;</div><div class="line">	&lt;div class=&quot;child3&quot;&gt;3&lt;/div&gt;</div><div class="line">	&lt;div class=&quot;child4&quot;&gt;4&lt;/div&gt;</div><div class="line">	&lt;div class=&quot;child5&quot;&gt;5&lt;/div&gt;</div><div class="line">	&lt;div class=&quot;child6&quot;&gt;6&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;style&gt;</div><div class="line">  .parent div &#123;</div><div class="line">    margin-left: -20px;</div><div class="line">  &#125;</div><div class="line">  .column &#123;</div><div class="line">    float: left;</div><div class="line">    width: 25%;</div><div class="line">    padding-left: 20px;</div><div class="line">    box-sizing: border-box;</div><div class="line">  &#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure></p>
+<p>flex布局实现多列等比布局(存在兼容性问题)：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;parent&quot;&gt;</div><div class="line">  &lt;div class=&quot;column&quot;&gt;</div><div class="line">    &lt;p&gt;1&lt;/p&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">  &lt;div class=&quot;column&quot;&gt;</div><div class="line">    &lt;p&gt;2&lt;/p&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">  &lt;div class=&quot;column&quot;&gt;</div><div class="line">    &lt;p&gt;3&lt;/p&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">  &lt;div class=&quot;column&quot;&gt;</div><div class="line">    &lt;p&gt;4&lt;/p&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;style&gt;</div><div class="line">  .parent &#123;</div><div class="line">    display: flex;</div><div class="line">    </div><div class="line">  &#125;</div><div class="line">  .column &#123;</div><div class="line">    flex: 1;  /*等价于 flex: 1 1 0;*/</div><div class="line">    background: #eee;</div><div class="line">  &#125;</div><div class="line">  .column+.column &#123;</div><div class="line">    margin-left: 20px;</div><div class="line">  &#125;</div><div class="line">  &lt;/style&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="两列等高布局"><a href="#两列等高布局" class="headerlink" title="两列等高布局"></a>两列等高布局</h3><p>左侧和右侧两列的高度始终一致：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;parent&quot;&gt;</div><div class="line">    &lt;div class=&quot;left&quot;&gt;&lt;/div&gt;</div><div class="line">    &lt;div class=&quot;right&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;style&gt;</div><div class="line">.parent &#123;</div><div class="line">    overflow: hidden;</div><div class="line">    background:#eee;</div><div class="line">  &#125;</div><div class="line">  .left,</div><div class="line">  .right &#123;</div><div class="line">    padding-bottom: 9999px;</div><div class="line">    margin-bottom: -9999px;</div><div class="line">    background:#333;</div><div class="line">  &#125;</div><div class="line">  .left &#123;</div><div class="line">    float: left;</div><div class="line">    width: 100px;</div><div class="line">    margin-right: 20px;</div><div class="line">  &#125;</div><div class="line">  .right &#123;</div><div class="line">    overflow: hidden;</div><div class="line">  &#125;</div><div class="line">  &lt;/style&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="瀑布流布局"><a href="#瀑布流布局" class="headerlink" title="瀑布流布局"></a>瀑布流布局</h3><ul>
+<li><p>利用css3 column多栏布局实现，存在兼容性问题：<br>代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">&lt;section&gt;</div><div class="line">    &lt;div class=&quot;container&quot;&gt;</div><div class="line">    &lt;div style=&quot;height:80px&quot; class=&quot;title&quot;&gt;纯CSS3瀑布布局&lt;/div&gt;</div><div class="line">    &lt;div style=&quot;height:260px&quot;&gt;&lt;/div&gt;</div><div class="line">    &lt;div style=&quot;height:65px&quot;&gt;&lt;/div&gt;</div><div class="line">    &lt;div style=&quot;height:120px&quot;&gt;&lt;/div&gt;</div><div class="line">    &lt;div style=&quot;height:145px&quot;&gt;&lt;/div&gt;</div><div class="line">    ...</div><div class="line">&lt;/section&gt;</div><div class="line">&lt;style&gt;</div><div class="line">.container&#123;</div><div class="line">        -webkit-column-width:160px;</div><div class="line">        -moz-column-width:160px;</div><div class="line">        -o-colum-width:160px;</div><div class="line">        -webkit-column-gap:1px;</div><div class="line">        -moz-column-gap:1px;</div><div class="line">        -o-column-gap:1px;</div><div class="line">    &#125;</div><div class="line">    div:not(.container)&#123;</div><div class="line">        -webkit-border-radius:5px;</div><div class="line">        -moz-border-radius:5px;</div><div class="line">        border-radius:5px;</div><div class="line">        background:#90EE90;</div><div class="line">        border::#CCC 1px solid;</div><div class="line">        display:inline-block;</div><div class="line">        width:157px;</div><div class="line">        position:relative;</div><div class="line">        margin:2px;</div><div class="line">    &#125;</div><div class="line">    .title&#123;</div><div class="line">         line-height:80px; font-size:18px; color:#999;</div><div class="line">         text-align:center;</div><div class="line">         font-family:&quot;Microsoft YaHei&quot;;</div><div class="line">    &#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>传统float方式，代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;wrap&quot;&gt;</div><div class="line">  &lt;div class=&apos;left&apos; style=&quot;height:100px;&quot;&gt;324234&lt;/div&gt;</div><div class="line">  &lt;div class=&apos;left&apos; style=&quot;height:150px;&quot;&gt;rwder&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div class=&quot;wrap&quot;&gt;</div><div class="line">  &lt;div class=&apos;left&apos; style=&quot;height:60px;&quot;&gt;rwdr&lt;/div&gt;</div><div class="line">  &lt;div class=&apos;left&apos; style=&quot;height:190px;&quot;&gt;werder&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div class=&quot;wrap&quot;&gt;</div><div class="line">  &lt;div class=&apos;left&apos; style=&quot;height:120px;&quot;&gt;ds&lt;/div&gt;</div><div class="line">  &lt;div class=&apos;left&apos; style=&quot;height:200px;&quot;&gt;dds&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;style&gt;</div><div class="line">.wrap&#123;</div><div class="line">  float:left;</div><div class="line">  margin:5px 5px;</div><div class="line">&#125;</div><div class="line">.left&#123;</div><div class="line">  background: #058;</div><div class="line">  width:160px;</div><div class="line">  margin-bottom:5px;</div><div class="line">&#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>js控制的瀑布流</strong>，随着滚动不断加载内容，也可响应式，详见<a href="http://www.zhangxinxu.com/wordpress/2012/03/%E5%A4%9A%E6%A0%8F%E5%88%97%E8%A1%A8%E5%8E%9F%E7%90%86%E4%B8%8B%E5%AE%9E%E7%8E%B0%E7%9A%84%E7%80%91%E5%B8%83%E6%B5%81%E5%B8%83%E5%B1%80-waterfall-layout/" target="_blank" rel="external">张鑫旭大神的瀑布流布局</a></p>
+<blockquote>
+<p>flex布局，存在兼容性问题。详见<a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="external">阮一峰博客</a><br>未完待续……</p>
+</blockquote>
+</li>
+</ul>
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/layout/">layout</a>
+
+            </div>
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/09/select2/"  data-tooltip="项目中常用的select2用法">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/04/css居中/" data-tooltip="css让元素居中的方式">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://toringo.github.io/2016/10/07/layoutHtml/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://toringo.github.io/2016/10/07/layoutHtml/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://toringo.github.io/2016/10/07/layoutHtml/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2016 Toringo. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/09/select2/"  data-tooltip="项目中常用的select2用法">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/04/css居中/" data-tooltip="css让元素居中的方式">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://toringo.github.io/2016/10/07/layoutHtml/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://toringo.github.io/2016/10/07/layoutHtml/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://toringo.github.io/2016/10/07/layoutHtml/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://toringo.github.io/2016/10/07/layoutHtml/">
+                <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://toringo.github.io/2016/10/07/layoutHtml/">
+                <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://toringo.github.io/2016/10/07/layoutHtml/">
+                <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        
+
+
+    
+        
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="/assets/images/champion.png"/>
+        
+            <h4 id="about-card-name">Toringo</h4>
+        
+            <h5 id="about-card-bio"><p>author.bio</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </h5>
+        
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script-i4qo6jx6jji9fg0dftpya6ivemizsbow4fhow76d8dwpm7m1wbvi378ssumx.min.js"></script>
+<!--SCRIPTS END-->
+
+    
+
+
+
+</html>

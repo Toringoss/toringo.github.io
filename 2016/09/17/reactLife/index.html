@@ -1,0 +1,452 @@
+
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Toringo&#39;s blog">
+    <title>理解react组件的生命周期 - Toringo&#39;s blog</title>
+    <meta name="author" content="Toringo">
+    
+    
+    
+    <meta name="description" content="一个组件的声明周期可以理解为三个阶段：
+
+
+mounting 组件正在插入到 DOM 中
+updating 组件正在重新注入新数据后更新到 DOM 中
+unmounting 组件从 DOM 中移除……">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="理解react组件的生命周期">
+<meta property="og:url" content="https://toringo.github.io/2016/09/17/reactLife/index.html">
+<meta property="og:site_name" content="Toringo's blog">
+<meta property="og:description" content="一个组件的声明周期可以理解为三个阶段：
+
+
+mounting 组件正在插入到 DOM 中
+updating 组件正在重新注入新数据后更新到 DOM 中
+unmounting 组件从 DOM 中移除……">
+<meta property="og:updated_time" content="2016-09-22T23:46:37.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="理解react组件的生命周期">
+<meta name="twitter:description" content="一个组件的声明周期可以理解为三个阶段：
+
+
+mounting 组件正在插入到 DOM 中
+updating 组件正在重新注入新数据后更新到 DOM 中
+unmounting 组件从 DOM 中移除……">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="https://toringo.github.io/assets/images/champion.png"/>
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-nuvue6sithwirecbhvw3dkaobiojqvtadsnhguwi7k04xklybw5djl1smadp.min.css">
+    <!--STYLES END-->
+    
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-85099518-1']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+<header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Toringo&#39;s blog</a>
+    </h1>
+    
+        
+            <a  class="header-right-icon open-algolia-search"
+                href="#search">
+        
+        
+            <i class="fa fa-lg fa-search"></i>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+
+        
+    
+
+<nav id="sidebar" data-behavior="3">
+    
+        <div class="sidebar-profile">
+            <a href="/#about">
+                    <img class="sidebar-profile-picture" src="/assets/images/champion.png"/>
+            </a>
+            <span class="sidebar-profile-name">Toringo</span>
+        </div>
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Home</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categories</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Tags</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archives</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">About</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://github.com/guotao007" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+                    <span class="sidebar-button-desc">GitHub</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="mailto:dashentao007@163.com" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-envelope-o"></i>
+                    <span class="sidebar-button-desc">Mail</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="3"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            理解react组件的生命周期
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" datetime="2016-09-17T17:58:08+08:00">
+	
+		    Sep 17, 2016
+    	
+    </time>
+    
+</div>
+
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <blockquote>
+<p>一个组件的声明周期可以理解为三个阶段：</p>
+</blockquote>
+<ul>
+<li><em>mounting</em> 组件正在插入到 DOM 中</li>
+<li><em>updating</em> 组件正在重新注入新数据后更新到 DOM 中</li>
+<li><em>unmounting</em> 组件从 DOM 中移除<br>……<a id="more"></a>
+</li>
+</ul>
+<h2 id="mounting-阶段"><a href="#mounting-阶段" class="headerlink" title="mounting 阶段"></a>mounting 阶段</h2><ul>
+<li><p>getInitialState() 首先被被调用，返回原始数据，默认的数据。</p>
+</li>
+<li><p>componentWillMount() 在组件 mounting 前调用，即将调用。</p>
+</li>
+<li><p>componentDidMount() 在组件 mounting 完成后调用，</p>
+</li>
+</ul>
+<h2 id="updating-阶段"><a href="#updating-阶段" class="headerlink" title="updating 阶段"></a>updating 阶段</h2><ul>
+<li><p>componentWillReceiveProps(nextProps) 在接收到新的 props 时调用</p>
+</li>
+<li><p>shouldComponentUpdate(nextProps, nextState) 在组件需要更新 DOM 时调用，若这个函数返回 false 则告诉 React 不要更新, 如定时器到多少停止，或者倒计时组件等。</p>
+</li>
+<li><p>componentWillUpdate(nextProps, nextState) 在更新发生时调用，可以在这里调用 this.setState() 刷新数据</p>
+</li>
+<li>componentDidUpdate(prevProps, prevState) 在更新完成后调用</li>
+</ul>
+<h2 id="unmounting-阶段"><a href="#unmounting-阶段" class="headerlink" title="unmounting 阶段"></a>unmounting 阶段</h2><ul>
+<li>componentWillUnmount() 在组件移除时被调用，在这里可以对数据进行清理，譬如清除定时器，绑定的事件等。</li>
+</ul>
+<h2 id="强制使用数据更新组件"><a href="#强制使用数据更新组件" class="headerlink" title="强制使用数据更新组件"></a>强制使用数据更新组件</h2><ul>
+<li>forceUpdate() 强制使用数据更新组件，而不用调用 this.setState()</li>
+</ul>
+<h2 id="浏览器的执行顺序"><a href="#浏览器的执行顺序" class="headerlink" title="浏览器的执行顺序"></a>浏览器的执行顺序</h2><p><strong>render时自动执行的顺序:</strong><br>getInitialState()  –&gt; componentWillMount()  –&gt;  render()  –&gt;  componentDidMount()  –&gt; componentUnMount<br><strong>更新state时的执行的函数:</strong><br>componentWillReceiveProps -&gt; shouldComponentUpdate (return true继续执行，如果return false停止) -&gt; componentWillUpdate -&gt; render() -&gt; componentDidUpdate()</p>
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/09/22/webpack_1/"  data-tooltip="Webpack入门">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/09/07/npm/" data-tooltip="npm常用命令集合">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://toringo.github.io/2016/09/17/reactLife/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://toringo.github.io/2016/09/17/reactLife/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://toringo.github.io/2016/09/17/reactLife/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2016 Toringo. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/09/22/webpack_1/"  data-tooltip="Webpack入门">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/09/07/npm/" data-tooltip="npm常用命令集合">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://toringo.github.io/2016/09/17/reactLife/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://toringo.github.io/2016/09/17/reactLife/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://toringo.github.io/2016/09/17/reactLife/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://toringo.github.io/2016/09/17/reactLife/">
+                <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://toringo.github.io/2016/09/17/reactLife/">
+                <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://toringo.github.io/2016/09/17/reactLife/">
+                <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        
+
+
+    
+        
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="/assets/images/champion.png"/>
+        
+            <h4 id="about-card-name">Toringo</h4>
+        
+            <h5 id="about-card-bio"><p>author.bio</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </h5>
+        
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script-i4qo6jx6jji9fg0dftpya6ivemizsbow4fhow76d8dwpm7m1wbvi378ssumx.min.js"></script>
+<!--SCRIPTS END-->
+
+    
+
+
+
+</html>

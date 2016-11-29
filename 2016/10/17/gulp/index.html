@@ -1,0 +1,428 @@
+
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Toringo&#39;s blog">
+    <title>gulp入门随即用 - Toringo&#39;s blog</title>
+    <meta name="author" content="Toringo">
+    
+    
+    
+    <meta name="description" content="直接进入主题：gulp是一个前端打包工具，主要功能就是移入要处理的文件，然后输出处理后的文件的过程。gulp的安装：npm install gulp -g，再到文件根目录下安装：npm install gulp --save-dev;">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="gulp入门随即用">
+<meta property="og:url" content="https://toringo.github.io/2016/10/17/gulp/index.html">
+<meta property="og:site_name" content="Toringo's blog">
+<meta property="og:description" content="直接进入主题：gulp是一个前端打包工具，主要功能就是移入要处理的文件，然后输出处理后的文件的过程。gulp的安装：npm install gulp -g，再到文件根目录下安装：npm install gulp --save-dev;">
+<meta property="og:updated_time" content="2016-10-20T15:52:25.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="gulp入门随即用">
+<meta name="twitter:description" content="直接进入主题：gulp是一个前端打包工具，主要功能就是移入要处理的文件，然后输出处理后的文件的过程。gulp的安装：npm install gulp -g，再到文件根目录下安装：npm install gulp --save-dev;">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="https://toringo.github.io/assets/images/champion.png"/>
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-nuvue6sithwirecbhvw3dkaobiojqvtadsnhguwi7k04xklybw5djl1smadp.min.css">
+    <!--STYLES END-->
+    
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-85099518-1']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+<header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Toringo&#39;s blog</a>
+    </h1>
+    
+        
+            <a  class="header-right-icon open-algolia-search"
+                href="#search">
+        
+        
+            <i class="fa fa-lg fa-search"></i>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+
+        
+    
+
+<nav id="sidebar" data-behavior="3">
+    
+        <div class="sidebar-profile">
+            <a href="/#about">
+                    <img class="sidebar-profile-picture" src="/assets/images/champion.png"/>
+            </a>
+            <span class="sidebar-profile-name">Toringo</span>
+        </div>
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Home</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categories</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Tags</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archives</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">About</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://github.com/guotao007" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+                    <span class="sidebar-button-desc">GitHub</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="mailto:dashentao007@163.com" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-envelope-o"></i>
+                    <span class="sidebar-button-desc">Mail</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="3"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            gulp入门随即用
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" datetime="2016-10-17T18:55:01+08:00">
+	
+		    Oct 17, 2016
+    	
+    </time>
+    
+</div>
+
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <blockquote>
+<p>直接进入主题：gulp是一个前端打包工具，主要功能就是移入要处理的文件，然后输出处理后的文件的过程。<br>gulp的安装：<code>npm install gulp -g</code>，再到文件根目录下安装：<code>npm install gulp --save-dev</code>;<br><a id="more"></a></p>
+</blockquote>
+<h3 id="主要API介绍："><a href="#主要API介绍：" class="headerlink" title="主要API介绍："></a>主要API介绍：</h3><p>gulp有五个方法：task ， run ， watch ， src ，和 dest。</p>
+<h4 id="读文件："><a href="#读文件：" class="headerlink" title="读文件："></a>读文件：</h4><p><code>gulp.src()</code>:输入单个文件、数组文件和匹配模式，如：<br>单个文件：<code>gulp.src(&#39;src/scss/index.scss&#39;)</code>,多个文件：<code>gulp.src([&#39;src/js/index.js&#39;, &#39;src/js/layout.js&#39;])</code>，匹配模式：<code>gulp.src(&#39;src/**/*.scss&#39;)</code>;</p>
+<h4 id="写文件："><a href="#写文件：" class="headerlink" title="写文件："></a>写文件：</h4><p><code>gulp.dest(&#39;目录&#39;)</code>，如：gulp.src(‘index.scss’).pipe(gulp.dest(‘输出目录’))</p>
+<h4 id="写任务："><a href="#写任务：" class="headerlink" title="写任务："></a>写任务：</h4><p><code>gulp.task(&#39;任务名&#39;，&#39;任务名组成的数组&#39;,&#39;匿名函数()可选&#39;)</code>，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// 自定义一个任务</div><div class="line">gulp.task(&apos;testScss&apos;, function () &#123;</div><div class="line">    gulp.src(&apos;src/scss/index.scss&apos;) //要处理的文件</div><div class="line">        .pipe(scss()) //需要用到的模块</div><div class="line">        .pipe(gulp.dest(fileName)) //将会在src/css下生成index.css</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>此任务中包含多个任务名：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">gulp.task(&apos;more&apos;, [&apos;server&apos;, &apos;watch&apos;], function()&#123;</div><div class="line">	console.log(&apos;复制打包完成！&apos;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h4 id="监听文件变化："><a href="#监听文件变化：" class="headerlink" title="监听文件变化："></a>监听文件变化：</h4><p><code>gulp.watch()</code>，接收的参数和gulp-src相同，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">gulp.watch(&apos;src/index.html&apos;, [&apos;index&apos;])</div><div class="line">gulp.watch(&apos;src/**/*.scss&apos;, [&apos;testScss&apos;])</div><div class="line">gulp.watch(&apos;src/**/*.js&apos;, [&apos;js&apos;])</div><div class="line">gulp.watch(&apos;src/img/*.&#123;jpeg,png&#125;&apos;, [&apos;image&apos;])</div></pre></td></tr></table></figure></p>
+<h4 id="运行多个任务"><a href="#运行多个任务" class="headerlink" title="运行多个任务"></a>运行多个任务</h4><p><code>gulp.run()</code>,接收多个task任务名称，如：<br><code>gulp.run(&#39;testScss&#39;, &#39;js&#39;, &#39;index&#39;, &#39;image&#39;)</code>，<br>run方法已弃用，你可以构建一个任务来执行这些任务即可，如：<br><code>gulp.task(&#39;allTask&#39;,[&#39;testScss&#39;, &#39;js&#39;, &#39;index&#39;, &#39;image&#39;])</code>;</p>
+<h3 id="使用："><a href="#使用：" class="headerlink" title="使用："></a>使用：</h3><p>gulp其实就是将一个或多个文件复制或经过处理打包成一个文件或多个文件，且放到指定文件夹的过程。<br>项目文件根目录下创建配置gulp的<code>gulpfile.js</code>,可以写任务，一般一个task处理一种文件，用法：直接到命令行中输入<code>gulp 任务名</code>即可执行打包任务。<br>gulp远不止这么简单，下面介绍一些常用的plugin：</p>
+<h4 id="gulp-sass"><a href="#gulp-sass" class="headerlink" title="gulp-sass"></a>gulp-sass</h4><p>可以将sass文件编译成css，常见用法：<br>先安装<code>npm install gulp-sass --save-dev</code>,<br>使用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">import scss from &apos;gulp-sass&apos;;</div><div class="line">gulp.src(&apos;src/scss/index.scss&apos;)  // 要处理的文件</div><div class="line">    .pipe(scss()) </div><div class="line">    .pipe(gulp.dest(&apos;dist/css&apos;));</div></pre></td></tr></table></figure></p>
+<h4 id="gulp-minify-css"><a href="#gulp-minify-css" class="headerlink" title="gulp-minify-css"></a>gulp-minify-css</h4><p>用于压缩css，常见用法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">import uglifyCss from &apos;gulp-sass&apos;;</div><div class="line">gulp.src(&apos;src/scss/index.scss&apos;)  // 要处理的文件</div><div class="line">    .pipe(scss()) </div><div class="line">    .pipe(uglifyCss(&#123;</div><div class="line">    		advanced: false,//类型：Boolean 默认：true [是否开启高级优化（合并选择器等）]</div><div class="line">            compatibility: &apos;ie7&apos;,//保留ie7及以下兼容写法 类型：String 默认：&apos;&apos;or&apos;*&apos; [启用兼容模式； &apos;ie7&apos;：IE7兼容模式，&apos;ie8&apos;：IE8兼容模式，&apos;*&apos;：IE9+兼容模式]</div><div class="line">            keepBreaks: true,//类型：Boolean 默认：false [是否保留换行]</div><div class="line">            keepSpecialComments: &apos;*&apos;</div><div class="line">            //保留所有特殊前缀 当你用autoprefixer生成的浏览器前缀，如果不加这个参数，有可能将会删除你的部分前缀&#125;))</div><div class="line">    .pipe(gulp.dest(&apos;dist/css&apos;));</div></pre></td></tr></table></figure></p>
+<h4 id="gulp-autoprefixer"><a href="#gulp-autoprefixer" class="headerlink" title="gulp-autoprefixer"></a>gulp-autoprefixer</h4><p>自动给css属性加浏览器前缀：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">import scss from &apos;gulp-sass&apos;;</div><div class="line">gulp.src(&apos;src/scss/index.scss&apos;)  // 要处理的文件</div><div class="line">    .pipe(scss()) </div><div class="line">    .pipe(uglifyCss())</div><div class="line">	.pipe(plugins.autoprefixer(&#123;</div><div class="line">		browsers: [&apos;last 2 version&apos;, &apos;safari 5&apos;, &apos;ie 8&apos;, &apos;ie 9&apos;, &apos;opera 12.1&apos;, &apos;ios 6&apos;, &apos;android 4&apos;],  // 主流浏览器的最新版本</div><div class="line">		cascade: true,    // 是否美化属性值</div><div class="line">		remove: true // 是否去掉不必要的前缀</div><div class="line">	&#125;))</div><div class="line">	.pipe(gulp.dest(&apos;dist/css&apos;));</div></pre></td></tr></table></figure></p>
+<h4 id="gulp-concat"><a href="#gulp-concat" class="headerlink" title="gulp-concat"></a>gulp-concat</h4><p>将多个文件合并成一个文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">gulp.task(&apos;js&apos;, function() &#123;</div><div class="line">	gulp.src([&apos;src/js/index.js&apos;, &apos;src/js/layout.js&apos;])</div><div class="line">		.pipe(concat(&apos;app.js&apos;))    // 合并到统一的文件中</div><div class="line">		.pipe(gulp.dest(&apos;dist/js&apos;))</div></pre></td></tr></table></figure></p>
+<h4 id="gulp-connect"><a href="#gulp-connect" class="headerlink" title="gulp-connect"></a>gulp-connect</h4><p>可以构建gulp本地服务器：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// 本地服务器任务</div><div class="line">gulp.task(&apos;server&apos;, function() &#123;</div><div class="line">	plugins.connect.server(&#123;</div><div class="line">		root: &apos;src&apos;,   //根目录</div><div class="line">		port: 5005,   // 端口号</div><div class="line">		livereload: true,   // 允许实时刷新</div><div class="line">		open: true // 服务器启动时自动打开网页</div><div class="line">	&#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h4 id="gulp-babel-babel-preset-es2015"><a href="#gulp-babel-babel-preset-es2015" class="headerlink" title="gulp-babel babel-preset-es2015"></a>gulp-babel babel-preset-es2015</h4><p>可以把es6,es7转换成CommonJS格式，但是浏览器任然不支持require模式，让他们被浏览器识别：<br>根目录下新建<code>.babelrc</code>,输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;presets&quot;: [&quot;es2015&quot;]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>然后你在项目所有js文件中可以优雅的使用es6新特性，如<code>import gulp from &#39;gulp&#39;</code>。</p>
+<hr>
+<p>未完待续,,,,,,<br>…<br>….<br>…..<br>go on </p>
+<h4 id="browserify"><a href="#browserify" class="headerlink" title="browserify"></a>browserify</h4><p>上面提到babel将es6转换成commonJs，需要浏览器支持，还需要进一步转换成es5，所以需要用browserify来转换。然而babel在处理es6之前还需要预处理一下，用到babelify库，所以需要安装：<code>npm install babelify babel-preset-es2015 browserify vinyl-source-stream --save-dev</code>,详见代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">import gulp        from &apos;gulp&apos;;</div><div class="line">import browserify  from &apos;browserify&apos;;</div><div class="line">import babelify    from &apos;babelify&apos;;</div><div class="line">import source      from &apos;vinyl-source-stream&apos;;</div><div class="line">gulp.task(&apos;build&apos;, function () &#123;</div><div class="line">    return browserify(&#123;entries: &apos;./src/index.js&apos;, debug: true&#125;)</div><div class="line">        .transform(&quot;babelify&quot;, &#123; presets: [&quot;es2015&quot;] &#125;)</div><div class="line">        .bundle()</div><div class="line">        .pipe(source(&apos;app.js&apos;))</div><div class="line">        .pipe(gulp.dest(&apos;./dist/js&apos;));</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>vinyl-source-stream是什么东东，首先gulp是基于node流的（vinyl streams），而browserify返回的不是vinyl stream，而 vinyl-source-stream恰好能将其转换成vinyl stream，使gulp继续运行。</p>
+<h4 id="uglify和Source-Maps"><a href="#uglify和Source-Maps" class="headerlink" title="uglify和Source Maps"></a>uglify和Source Maps</h4><p>首先安装： <code>npm install --save-dev vinyl-buffer gulp-uglify</code><br>gulp-uglify是用来让uglify支持stream的，所以常见写法就是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">gulp.task(&apos;build&apos;, function () &#123;</div><div class="line">    return browserify(&#123;entries: &apos;./src/index.js&apos;, debug: true&#125;)</div><div class="line">        .transform(&quot;babelify&quot;, &#123; presets: [&quot;es2015&quot;] &#125;)</div><div class="line">        .bundle()</div><div class="line">        .pipe(source(&apos;app.js&apos;))</div><div class="line">        .pipe(buffer())</div><div class="line">        .pipe(sourcemaps.init())</div><div class="line">        .pipe(uglify())</div><div class="line">        .pipe(sourcemaps.write(&apos;./maps&apos;))   // 保存在maps文件夹中</div><div class="line">        .pipe(gulp.dest(&apos;./dist/js&apos;));</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>应用以上plugin就可进行简单的打包，还有很多优秀的plugin来帮助gulp更好的打包，如<code>del</code>,<code>gulp-jshint</code>,<code>run-sequence</code>,<code>gulp-load-plugins</code>,<code>browser-sync</code>,<code>sprity</code>等很多优秀插件，可以跟好的帮助我们打包调试，有空可以深入研究，详情可以看鄙人的<strong><a href="https://github.com/guotao007" target="_blank" rel="external">github</a></strong>，有空会继续完善。</p>
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/11/03/cookies/"  data-tooltip="web储存">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/09/bind/" data-tooltip="bind的用法详解">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://toringo.github.io/2016/10/17/gulp/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://toringo.github.io/2016/10/17/gulp/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://toringo.github.io/2016/10/17/gulp/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2016 Toringo. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/11/03/cookies/"  data-tooltip="web储存">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/09/bind/" data-tooltip="bind的用法详解">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://toringo.github.io/2016/10/17/gulp/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://toringo.github.io/2016/10/17/gulp/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://toringo.github.io/2016/10/17/gulp/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://toringo.github.io/2016/10/17/gulp/">
+                <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://toringo.github.io/2016/10/17/gulp/">
+                <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://toringo.github.io/2016/10/17/gulp/">
+                <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        
+
+
+    
+        
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="/assets/images/champion.png"/>
+        
+            <h4 id="about-card-name">Toringo</h4>
+        
+            <h5 id="about-card-bio"><p>author.bio</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </h5>
+        
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script-i4qo6jx6jji9fg0dftpya6ivemizsbow4fhow76d8dwpm7m1wbvi378ssumx.min.js"></script>
+<!--SCRIPTS END-->
+
+    
+
+
+
+</html>

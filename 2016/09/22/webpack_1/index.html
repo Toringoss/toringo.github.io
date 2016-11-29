@@ -1,0 +1,433 @@
+
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Toringo&#39;s blog">
+    <title>Webpack入门 - Toringo&#39;s blog</title>
+    <meta name="author" content="Toringo">
+    
+    
+    
+    <meta name="description" content="什么是Webpack?模块打包的工具，主要功能：1.分析你的项目结构，分析js模块，找到一些浏览器不能识别的语言（scss，TypeScript，CoffeeScript、ES6等），用loader加载器将整个项目打包成浏览器识别的语言和便与开发.2.将样式文件和图片等静态资源也可视为模块进行打包。3.支持模块加载器和插件机制。4.支持 SourceUrls，更加易于调试。5.可以通过配置，打包">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Webpack入门">
+<meta property="og:url" content="https://toringo.github.io/2016/09/22/webpack_1/index.html">
+<meta property="og:site_name" content="Toringo's blog">
+<meta property="og:description" content="什么是Webpack?模块打包的工具，主要功能：1.分析你的项目结构，分析js模块，找到一些浏览器不能识别的语言（scss，TypeScript，CoffeeScript、ES6等），用loader加载器将整个项目打包成浏览器识别的语言和便与开发.2.将样式文件和图片等静态资源也可视为模块进行打包。3.支持模块加载器和插件机制。4.支持 SourceUrls，更加易于调试。5.可以通过配置，打包">
+<meta property="og:updated_time" content="2016-10-02T02:59:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Webpack入门">
+<meta name="twitter:description" content="什么是Webpack?模块打包的工具，主要功能：1.分析你的项目结构，分析js模块，找到一些浏览器不能识别的语言（scss，TypeScript，CoffeeScript、ES6等），用loader加载器将整个项目打包成浏览器识别的语言和便与开发.2.将样式文件和图片等静态资源也可视为模块进行打包。3.支持模块加载器和插件机制。4.支持 SourceUrls，更加易于调试。5.可以通过配置，打包">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="https://toringo.github.io/assets/images/champion.png"/>
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-nuvue6sithwirecbhvw3dkaobiojqvtadsnhguwi7k04xklybw5djl1smadp.min.css">
+    <!--STYLES END-->
+    
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-85099518-1']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+<header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Toringo&#39;s blog</a>
+    </h1>
+    
+        
+            <a  class="header-right-icon open-algolia-search"
+                href="#search">
+        
+        
+            <i class="fa fa-lg fa-search"></i>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+
+        
+    
+
+<nav id="sidebar" data-behavior="3">
+    
+        <div class="sidebar-profile">
+            <a href="/#about">
+                    <img class="sidebar-profile-picture" src="/assets/images/champion.png"/>
+            </a>
+            <span class="sidebar-profile-name">Toringo</span>
+        </div>
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Home</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categories</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Tags</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archives</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">About</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://github.com/guotao007" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+                    <span class="sidebar-button-desc">GitHub</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="mailto:dashentao007@163.com" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-envelope-o"></i>
+                    <span class="sidebar-button-desc">Mail</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="3"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            Webpack入门
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" datetime="2016-09-22T00:12:07+08:00">
+	
+		    Sep 22, 2016
+    	
+    </time>
+    
+</div>
+
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <blockquote>
+<p>什么是Webpack?<br>模块打包的工具，主要功能：<br>1.<strong>分析你的项目结构</strong>，分析js模块，找到一些浏览器不能识别的语言（scss，TypeScript，CoffeeScript、ES6等），用<strong>loader加载器</strong>将整个项目打包成浏览器识别的语言和便与开发.<br>2.将样式文件和图片等静态资源也可视为模块进行打包。<br>3.支持模块加载器和插件机制。<br>4.支持 <strong><a href="#source-map">SourceUrls</a></strong>，更加易于调试。<br>5.可以通过配置，打包成多个文件。有效利用浏览器的缓存功能提升性能。(例如审计项目)。<br>6.webpack有一个文件束chunkFile的概念，它会自动去把需要异步加载的文件变成一个chunkFile，然后触发加载的时候再去加载<a href="#chunkFile">chunkFile</a>。</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="工作方式"><a href="#工作方式" class="headerlink" title="工作方式"></a>工作方式</h3><p>从整个项目指定的入口文件出发（一般为index.js），从这个文件中找到项目所有依赖的文件，将他们通过<strong>loader加载器</strong>处理，打包成浏览器认识的Js文件。<br>什么是<strong>loader加载器</strong>？<br>它就是用来识别webpack加载的不同的文件，把他们解析成浏览器能识别的文件。譬如要打包sass文件，需要安装：<code>npm install sass-loader node-sass</code>，然后再配置文件中添加：<br><code>{
+    test: /\.sass$/,
+    loaders: [&quot;style&quot;, &quot;css&quot;, &quot;sass&quot;]
+}</code>。</p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><ul>
+<li>首先先创建node的配置文件：<code>npm init</code>。</li>
+<li>webpack安装：  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//全局安装  </div><div class="line">npm install -g webpack  </div><div class="line">//或者安装到你的项目目录  </div><div class="line">npm install webpack --save   //--save的意思是将安装的模块写到package.json文件中的dependencies对象中</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>webpack常用命令：<br>webpack –watch  动态实时监控问价变化并且打包<br>webpack -p  压缩打包后的文件</p>
+<ul>
+<li>然后创建webpack.config.js，基本配置如下： <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">module.exports = &#123;</div><div class="line">    entry: &#123;</div><div class="line">        home: &quot;js/home&quot;,   // 入口文件配置</div><div class="line">    &#125;,</div><div class="line">    output: &#123;</div><div class="line">        path: &quot;__dirname&quot;,                   //打包输出目录名，如assets</div><div class="line">        publicPath: &quot;/static/build/&quot;,     //webpack-dev-server访问的路径</div><div class="line">        filename: &quot;bundle.js&quot;,            //输出文件名</div><div class="line">        chunkFilename: &quot;bundle-[id].js&quot;   //输出chunk文件名</div><div class="line">    &#125;,</div><div class="line">    resolve: &#123;</div><div class="line">        extensions: [&apos;&apos;, &apos;.js&apos;, &apos;.jsx&apos;],   //指定可以被 require 的文件后缀。比如 Hello.jsx 这样的文件就可以直接用 require(./Hello) 引用。</div><div class="line">        modulesDirectories: [&apos;.&apos;]   //告诉webpack所有模块的启始目录由当前目录开始</div><div class="line">        &#125;,</div><div class="line">   module: &#123;</div><div class="line">    loaders: [</div><div class="line">    	&#123;</div><div class="line">          test: /\.json$/,</div><div class="line">          loader: &quot;json&quot;</div><div class="line">        &#125;,   //识别json文件</div><div class="line">        &#123;</div><div class="line">          test: /\.js$/,</div><div class="line">          exclude: /node_modules/,</div><div class="line">          loader: &apos;babel&apos;,// 在webpack的module部分的loaders里进行配置</div><div class="line">          query: &#123;</div><div class="line">            presets: [&apos;es2015&apos;,&apos;react&apos;]</div><div class="line">          &#125;</div><div class="line">        &#125;,</div><div class="line">        &#123;</div><div class="line">          test: /\.css$/,</div><div class="line">          loader: &apos;style!css?modules!postcss&apos; //模块化css,只要在他的父组件调用就可以，其他调用不需要调用相应的css文件,npm install --save-dev postcss-loader autoprefixer</div><div class="line">        &#125;,</div><div class="line">     	&#123;</div><div class="line">     		test: /\.(png|jpg)$/,</div><div class="line">     		loader: &apos;url-loader?limit=8192&apos;   //限制大于8k的文件转化成base64的格式</div><div class="line">     	&#125;,</div><div class="line">     	plugins: [</div><div class="line">    		new webpack.BannerPlugin(&apos;这个插件用来添加头部注释&apos;) //打开bundle.js文件，头部会存在`/*! 这个插件用来添加头部注释 */`</div><div class="line">  		]</div><div class="line">    ]</div><div class="line">  &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><h4 id="demo1-webpack-config-js配置如下："><a href="#demo1-webpack-config-js配置如下：" class="headerlink" title="demo1:webpack.config.js配置如下："></a>demo1:webpack.config.js配置如下：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">module.exports = &#123;</div><div class="line">    entry: &#123;</div><div class="line">        entry: &apos;./main.js&apos;,</div><div class="line">    &#125;,</div><div class="line">    output: &#123;</div><div class="line">        filename: &quot;bundle.js&quot;,            //输出文件名</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">```  </div><div class="line">命令行里输入：webpack就可以打包</div></pre></td></tr></table></figure>
+<h4 id="demo2-webpack-config-js配置如下："><a href="#demo2-webpack-config-js配置如下：" class="headerlink" title="demo2:webpack.config.js配置如下："></a>demo2:webpack.config.js配置如下：</h4><p>可以分别打包多个文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">module.exports = &#123;</div><div class="line">  entry: &#123;</div><div class="line">    bundle1: &apos;./main1.js&apos;,</div><div class="line">    bundle2: &apos;./main2.js&apos;</div><div class="line">  &#125;,</div><div class="line">  output: &#123;</div><div class="line">    filename: &apos;[name].js&apos;  // name指的是bundle1和bundle2</div><div class="line">  &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<h4 id="demo3-webpack-config-js配置如下："><a href="#demo3-webpack-config-js配置如下：" class="headerlink" title="demo3:webpack.config.js配置如下："></a>demo3:webpack.config.js配置如下：</h4><p>webpack-dev-server服务器解决每次手动打包的繁琐过程：<br>首先安装<code>npm install webpack-dev-server (-g)</code><br>使用：webpack-dev-server替换了webpack命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">var HtmlwebpackPlugin = require(&apos;html-webpack-plugin&apos;);</div><div class="line">var webpack = require(&apos;webpack&apos;);</div><div class="line">module.exports = &#123;</div><div class="line">  entry: &apos;./main.jsx&apos;,</div><div class="line">  output: &#123;</div><div class="line">    filename: &apos;bundle.js&apos;,</div><div class="line">    vender: [&apos;jquery&apos;]     //jquery插件</div><div class="line">  &#125;,</div><div class="line">  module: &#123;</div><div class="line">    loaders:[</div><div class="line">      &#123;</div><div class="line">        test: /\.js[x]?$/,</div><div class="line">        exclude: /node_modules/,</div><div class="line">        loader: &apos;babel-loader?presets[]=es2015&amp;presets[]=react&apos;,</div><div class="line">      &#125;,</div><div class="line">      &#123;</div><div class="line">        test: /\.css$/,</div><div class="line">        loader: &apos;style-loader!css-loader&apos;</div><div class="line">      &#125;,</div><div class="line">      &#123;</div><div class="line">        test: /\.(png|jpg)$/,</div><div class="line">        loader: &apos;url-loader?limit=8192&apos;</div><div class="line">      &#125;</div><div class="line">    ]</div><div class="line">  &#125;,</div><div class="line">  plugins: [</div><div class="line">    new HtmlwebpackPlugin(&#123;</div><div class="line">      title: &apos;webpack-html-plugin&apos;,</div><div class="line">      filename: &apos;index2.html&apos;</div><div class="line">    &#125;),    // 生成html页面</div><div class="line">    new webpack.optimize.CommonsChunkPlugin(&apos;vender&apos;, &apos;vender.js&apos;)</div><div class="line">  ],</div><div class="line">  postcss: [</div><div class="line">    require(&apos;autoprefixer&apos;)//调用autoprefixer插件</div><div class="line">  ],</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<h5 id="source-map">Source map就是一个信息文件，里面储存着位置信息。也就是说，转换后的代码的每一个位置，所对应的转换前的位置。一般启用方法：在在转换后的文件中添加 <code>//@ sourceMappingURL=jquery.min.map</code>。Chrome浏览器支持这个功能。在Developer Tools的Setting设置中，确认选中”Enable source maps”。想要了解更多可以参考<a href="http://www.csdn.net/article/2013-01-25/2813953-JavaScript-Source-Map" target="_blank" rel="external">这篇文章</a></h5><br><h5 id="chunkFile">webpack会把动态加载的文件生成一个个的chunk，在配置文件的output里面加一行：<code>chunkFilename: &quot;bundle-[id].js&quot;</code>，会根据id来加载不同的chunk文件</h5>
+
+
+
+
+
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/09/26/RegExp/"  data-tooltip="常见正则表达式验证规则">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/09/17/reactLife/" data-tooltip="理解react组件的生命周期">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://toringo.github.io/2016/09/22/webpack_1/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://toringo.github.io/2016/09/22/webpack_1/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://toringo.github.io/2016/09/22/webpack_1/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2016 Toringo. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/09/26/RegExp/"  data-tooltip="常见正则表达式验证规则">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/09/17/reactLife/" data-tooltip="理解react组件的生命周期">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://toringo.github.io/2016/09/22/webpack_1/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://toringo.github.io/2016/09/22/webpack_1/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://toringo.github.io/2016/09/22/webpack_1/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://toringo.github.io/2016/09/22/webpack_1/">
+                <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://toringo.github.io/2016/09/22/webpack_1/">
+                <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://toringo.github.io/2016/09/22/webpack_1/">
+                <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        
+
+
+    
+        
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="/assets/images/champion.png"/>
+        
+            <h4 id="about-card-name">Toringo</h4>
+        
+            <h5 id="about-card-bio"><p>author.bio</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </h5>
+        
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script-i4qo6jx6jji9fg0dftpya6ivemizsbow4fhow76d8dwpm7m1wbvi378ssumx.min.js"></script>
+<!--SCRIPTS END-->
+
+    
+
+
+
+</html>

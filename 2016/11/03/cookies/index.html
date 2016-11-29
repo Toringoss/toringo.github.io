@@ -1,0 +1,439 @@
+
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Toringo&#39;s blog">
+    <title>web储存 - Toringo&#39;s blog</title>
+    <meta name="author" content="Toringo">
+    
+    
+    
+    <meta name="description" content="在客户端存储数据的方法：html5中的Web Storage包括了两种存储方式：sessionStorage和localStorage，Web Storage拥有setItem,getItem,removeItem,clear等方法,clea是移除所有sessionStorage或localStorage里的内容。
+
+localStorage - 没有时间限制的数据存储sessionStorage">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="web储存">
+<meta property="og:url" content="https://toringo.github.io/2016/11/03/cookies/index.html">
+<meta property="og:site_name" content="Toringo's blog">
+<meta property="og:description" content="在客户端存储数据的方法：html5中的Web Storage包括了两种存储方式：sessionStorage和localStorage，Web Storage拥有setItem,getItem,removeItem,clear等方法,clea是移除所有sessionStorage或localStorage里的内容。
+
+localStorage - 没有时间限制的数据存储sessionStorage">
+<meta property="og:updated_time" content="2016-11-20T23:02:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="web储存">
+<meta name="twitter:description" content="在客户端存储数据的方法：html5中的Web Storage包括了两种存储方式：sessionStorage和localStorage，Web Storage拥有setItem,getItem,removeItem,clear等方法,clea是移除所有sessionStorage或localStorage里的内容。
+
+localStorage - 没有时间限制的数据存储sessionStorage">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="https://toringo.github.io/assets/images/champion.png"/>
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-nuvue6sithwirecbhvw3dkaobiojqvtadsnhguwi7k04xklybw5djl1smadp.min.css">
+    <!--STYLES END-->
+    
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-85099518-1']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+<header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Toringo&#39;s blog</a>
+    </h1>
+    
+        
+            <a  class="header-right-icon open-algolia-search"
+                href="#search">
+        
+        
+            <i class="fa fa-lg fa-search"></i>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+
+        
+    
+
+<nav id="sidebar" data-behavior="3">
+    
+        <div class="sidebar-profile">
+            <a href="/#about">
+                    <img class="sidebar-profile-picture" src="/assets/images/champion.png"/>
+            </a>
+            <span class="sidebar-profile-name">Toringo</span>
+        </div>
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Home</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categories</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Tags</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archives</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">About</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://github.com/guotao007" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+                    <span class="sidebar-button-desc">GitHub</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="mailto:dashentao007@163.com" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-envelope-o"></i>
+                    <span class="sidebar-button-desc">Mail</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="3"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            web储存
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" datetime="2016-11-03T09:13:51+08:00">
+	
+		    Nov 03, 2016
+    	
+    </time>
+    
+</div>
+
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <h3 id="在客户端存储数据的方法："><a href="#在客户端存储数据的方法：" class="headerlink" title="在客户端存储数据的方法："></a>在客户端存储数据的方法：</h3><p>html5中的Web Storage包括了两种存储方式：sessionStorage和localStorage，Web Storage拥有setItem,getItem,removeItem,clear等方法,clea是移除所有sessionStorage或localStorage里的内容。</p>
+<blockquote>
+<p>localStorage - 没有时间限制的数据存储<br>sessionStorage - 针对一个 session 的数据存储<br>以前用cookie存储数据，不适合大量数据的存储，是的cookie很慢，因为他每一个都是从服务器请求，所以比较慢。而localStorage和sessionStorage是将数据存储在本地，只有在发请求的时候才会使用数据。</p>
+</blockquote>
+<a id="more"></a>
+<h4 id="localStorage"><a href="#localStorage" class="headerlink" title="localStorage"></a>localStorage</h4><p>没有时间限制的存储数据，用法见<a href="">localStorage用法</a></p>
+<h4 id="sessionStorage"><a href="#sessionStorage" class="headerlink" title="sessionStorage"></a>sessionStorage</h4><p>方法针对一个 session 进行数据存储。当用户关闭浏览器窗口后，数据会被删除。<br>基本用法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sessionStorage.lastname=&quot;Smith&quot;;   // 设置</div><div class="line">sessionStorage.lastname;           //读取</div></pre></td></tr></table></figure></p>
+<h4 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h4><p>cookie是运行在客户端的，所以可以用JS来设置cookie，它是存储于访问者的计算机中的变量。每当同一台计算机通过浏览器请求某个页面时，就会发送这个 cookie。  </p>
+<ul>
+<li><p>cookie的特点： *<br><code>大小不能超过4kb</code><br><code>可设置过期时间</code><br><code>默认情况下，只有与创建 cookie 的页面在同一个目录或子目录下的网页才可以访问</code><br><code>格式: &lt;名&gt;=&lt;值&gt;</code><br><code>浏览器默认不能跨域访问，cookie可以通过domain设置跨域</code><br><code>如不设置过期时间，浏览器默认cookie在关闭当前浏览页后清除</code><br><code>cookie以字符串形式存储</code></p>
+</li>
+<li><p>cookie 的操作：*<br>读：<code>document.cookie</code>，<br>写： <code>document.cookie = &quot;name=&quot;+username;expires=date;path=path;domain=domain;secure</code>，<br>  expires：设置过期时间，<br>  path：能被其他目录或者父级的目录访问类，通过设置 cookie 的path就可以实现；<br>  domain： 可设置其他域名来访问；<br>  secure：让服务器与cookie之间传输加密</p>
+</li>
+</ul>
+<p>删：就是设置过期时间为当前时间的前一秒即可；</p>
+<h3 id="服务器端储存数据的方式–session"><a href="#服务器端储存数据的方式–session" class="headerlink" title="服务器端储存数据的方式–session"></a>服务器端储存数据的方式–session</h3><p>机制： 当程序需要为某个客户端的请求创建一个session的时候，服务器首先检查这个客户端的请求里是否包含了一个session标识－称为session id，如果已经包含一个session id则说明以前已经为此客户创建过session，服务器就按照session id把这个session检索出来使用(如果检索不到，可能会新建一个，这种情况可能出现在服务端已经删除了该用户对应的session对象，但用户人为地在请求的URL后面附加上一个JSESSION的参数)。如果客户请求不包含session id，则为此客户创建一个session并且同时生成一个与此session相关联的session id，这个session id将在本次响应中返回给客户端保存。<br><em>特点</em>：<br>session保存在服务器，客户端不知道其中的信息；<br>session中保存的是对象；<br>session不能区分路径，同一个用户在访问一个网站期间，所有的session在任何一个地方都可以访问到</p>
+<p><strong>额外的</strong>：<br>1.如何利用Cookie实现自动登录？<br>当用户在某个网站注册后，就会收到一个惟一用户ID的cookie。客户后来重新连接时，这个用户ID会自动返回，服务器对它进行检查，确定它是否为注册用户且选择了自动登录，从而使用户务需给出明确的用户名和密码，就可以访问服务器上的资源。</p>
+<ol>
+<li>常见的cookie读写删除等函数的封装：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">var docCookies = &#123;</div><div class="line">  getItem: function (sKey) &#123;</div><div class="line">    return decodeURIComponent(document.cookie.replace(new RegExp(&quot;(?:(?:^|.*;)\\s*&quot; + encodeURIComponent(sKey).replace(/[\-\.\+\*]/g, &quot;\\$&amp;&quot;) + &quot;\\s*\\=\\s*([^;]*).*$)|^.*$&quot;), &quot;$1&quot;)) || null;</div><div class="line">  &#125;,</div><div class="line">  setItem: function (sKey, sValue, vEnd, sPath, sDomain, bSecure) &#123;</div><div class="line">    if (!sKey || /^(?:expires|max\-age|path|domain|secure)$/i.test(sKey)) &#123; return false; &#125;</div><div class="line">    var sExpires = &quot;&quot;;</div><div class="line">    if (vEnd) &#123;</div><div class="line">      switch (vEnd.constructor) &#123;</div><div class="line">        case Number:</div><div class="line">          sExpires = vEnd === Infinity ? &quot;; expires=Fri, 31 Dec 9999 23:59:59 GMT&quot; : &quot;; max-age=&quot; + vEnd;</div><div class="line">          break;</div><div class="line">        case String:</div><div class="line">          sExpires = &quot;; expires=&quot; + vEnd;</div><div class="line">          break;</div><div class="line">        case Date:</div><div class="line">          sExpires = &quot;; expires=&quot; + vEnd.toUTCString();</div><div class="line">          break;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">    document.cookie = encodeURIComponent(sKey) + &quot;=&quot; + encodeURIComponent(sValue) + sExpires + (sDomain ? &quot;; domain=&quot; + sDomain : &quot;&quot;) + (sPath ? &quot;; path=&quot; + sPath : &quot;&quot;) + (bSecure ? &quot;; secure&quot; : &quot;&quot;);</div><div class="line">    return true;</div><div class="line">  &#125;,</div><div class="line">  removeItem: function (sKey, sPath, sDomain) &#123;</div><div class="line">    if (!sKey || !this.hasItem(sKey)) &#123; return false; &#125;</div><div class="line">    document.cookie = encodeURIComponent(sKey) + &quot;=; expires=Thu, 01 Jan 1970 00:00:00 GMT&quot; + ( sDomain ? &quot;; domain=&quot; + sDomain : &quot;&quot;) + ( sPath ? &quot;; path=&quot; + sPath : &quot;&quot;);</div><div class="line">    return true;</div><div class="line">  &#125;,</div><div class="line">  hasItem: function (sKey) &#123;</div><div class="line">    return (new RegExp(&quot;(?:^|;\\s*)&quot; + encodeURIComponent(sKey).replace(/[\-\.\+\*]/g, &quot;\\$&amp;&quot;) + &quot;\\s*\\=&quot;)).test(document.cookie);</div><div class="line">  &#125;,</div><div class="line">  keys: /* optional method: you can safely remove it! */ function () &#123;</div><div class="line">    var aKeys = document.cookie.replace(/((?:^|\s*;)[^\=]+)(?=;|$)|^\s*|\s*(?:\=[^;]*)?(?:\1|$)/g, &quot;&quot;).split(/\s*(?:\=[^;]*)?;\s*/);</div><div class="line">    for (var nIdx = 0; nIdx &lt; aKeys.length; nIdx++) &#123; aKeys[nIdx] = decodeURIComponent(aKeys[nIdx]); &#125;</div><div class="line">    return aKeys;</div><div class="line">  &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><i style="color: red"><b>此封装是引用MDN。</b></i><br>例如写入cookie： <code>docCookies.setItem(name, value[, end[, path[, domain[, secure]]]])</code>。<br><em>参考的文章</em>:<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document/cookie" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/API/Document/cookie</a><br><a href="http://www.cnblogs.com/Darren_code/archive/2011/11/24/Cookie.html" target="_blank" rel="external">http://www.cnblogs.com/Darren_code/archive/2011/11/24/Cookie.html</a><br><a href="http://www.cnblogs.com/fishtreeyu/archive/2011/10/06/2200280.html" target="_blank" rel="external">http://www.cnblogs.com/fishtreeyu/archive/2011/10/06/2200280.html</a></p>
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/js/">js</a>
+
+            </div>
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/11/17/es6/"  data-tooltip="es6常见的变量解构，对象的合并">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/17/gulp/" data-tooltip="gulp入门随即用">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://toringo.github.io/2016/11/03/cookies/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://toringo.github.io/2016/11/03/cookies/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://toringo.github.io/2016/11/03/cookies/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2016 Toringo. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/11/17/es6/"  data-tooltip="es6常见的变量解构，对象的合并">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/17/gulp/" data-tooltip="gulp入门随即用">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://toringo.github.io/2016/11/03/cookies/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://toringo.github.io/2016/11/03/cookies/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://toringo.github.io/2016/11/03/cookies/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://toringo.github.io/2016/11/03/cookies/">
+                <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://toringo.github.io/2016/11/03/cookies/">
+                <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://toringo.github.io/2016/11/03/cookies/">
+                <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        
+
+
+    
+        
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="/assets/images/champion.png"/>
+        
+            <h4 id="about-card-name">Toringo</h4>
+        
+            <h5 id="about-card-bio"><p>author.bio</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </h5>
+        
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script-i4qo6jx6jji9fg0dftpya6ivemizsbow4fhow76d8dwpm7m1wbvi378ssumx.min.js"></script>
+<!--SCRIPTS END-->
+
+    
+
+
+
+</html>

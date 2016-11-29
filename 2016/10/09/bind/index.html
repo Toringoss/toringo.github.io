@@ -1,0 +1,442 @@
+
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Toringo&#39;s blog">
+    <title>bind的用法详解 - Toringo&#39;s blog</title>
+    <meta name="author" content="Toringo">
+    
+    
+    
+    <meta name="description" content="bind()是在ES5中新增的方法，主要作用就是将函数绑定到某个对象。首先明确一个概念上下文，函数每次调用时会有一个特殊值，这个特殊值就是本次调用的上下文（context）,也就是this的值。如果函数存在为木个对象的方法时，调用它调用这个函数，此次的上下文就是这个对象，this也就是这个对象。如下示例代码：">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="bind的用法详解">
+<meta property="og:url" content="https://toringo.github.io/2016/10/09/bind/index.html">
+<meta property="og:site_name" content="Toringo's blog">
+<meta property="og:description" content="bind()是在ES5中新增的方法，主要作用就是将函数绑定到某个对象。首先明确一个概念上下文，函数每次调用时会有一个特殊值，这个特殊值就是本次调用的上下文（context）,也就是this的值。如果函数存在为木个对象的方法时，调用它调用这个函数，此次的上下文就是这个对象，this也就是这个对象。如下示例代码：">
+<meta property="og:updated_time" content="2016-10-12T23:58:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="bind的用法详解">
+<meta name="twitter:description" content="bind()是在ES5中新增的方法，主要作用就是将函数绑定到某个对象。首先明确一个概念上下文，函数每次调用时会有一个特殊值，这个特殊值就是本次调用的上下文（context）,也就是this的值。如果函数存在为木个对象的方法时，调用它调用这个函数，此次的上下文就是这个对象，this也就是这个对象。如下示例代码：">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="https://toringo.github.io/assets/images/champion.png"/>
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-nuvue6sithwirecbhvw3dkaobiojqvtadsnhguwi7k04xklybw5djl1smadp.min.css">
+    <!--STYLES END-->
+    
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-85099518-1']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+<header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Toringo&#39;s blog</a>
+    </h1>
+    
+        
+            <a  class="header-right-icon open-algolia-search"
+                href="#search">
+        
+        
+            <i class="fa fa-lg fa-search"></i>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+
+        
+    
+
+<nav id="sidebar" data-behavior="3">
+    
+        <div class="sidebar-profile">
+            <a href="/#about">
+                    <img class="sidebar-profile-picture" src="/assets/images/champion.png"/>
+            </a>
+            <span class="sidebar-profile-name">Toringo</span>
+        </div>
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Home</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categories</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Tags</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archives</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">About</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://github.com/guotao007" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+                    <span class="sidebar-button-desc">GitHub</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="mailto:dashentao007@163.com" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-envelope-o"></i>
+                    <span class="sidebar-button-desc">Mail</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="3"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            bind的用法详解
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" datetime="2016-10-09T22:58:37+08:00">
+	
+		    Oct 09, 2016
+    	
+    </time>
+    
+</div>
+
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <blockquote>
+<p>bind()是在ES5中新增的方法，主要作用就是<strong>将函数绑定到某个对象</strong>。首先明确一个概念<strong>上下文</strong>，函数每次调用时会有一个特殊值，这个特殊值就是本次调用的上下文（context）,也就是this的值。如果函数存在为木个对象的方法时，调用它调用这个函数，此次的上下文就是这个对象，this也就是这个对象。如下示例代码：</p>
+</blockquote>
+<h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function a() &#123;</div><div class="line">	console.log(this);</div><div class="line">&#125;</div><div class="line">a(); // window</div></pre></td></tr></table></figure>
+<p>why?,因为在JavaScript中，所有函数都是window的属性和方法，调用a()其实是window.a(),只是规定不写window而已，所以此次的上下文就是全局对象window了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var b = &#123;</div><div class="line">  a: 23,</div><div class="line">  c: function()&#123;</div><div class="line">    console.log(this)</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">b.c(); // Object &#123; a=23,  c=function()&#125;</div></pre></td></tr></table></figure>
+<p>此次方法调用是对象来调用这个方法，所以上下文Context是对象b，this就指向b了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var a = &#123;</div><div class="line"> m: function() &#123;</div><div class="line">  var that = this;</div><div class="line">  console.log(this==a); // true</div><div class="line">  f();</div><div class="line">  </div><div class="line">  function f() &#123;</div><div class="line">   console.log(this === a); // false，this的值是全局对象或undefined</div><div class="line">   console.log(that === a); // true</div><div class="line">  &#125;</div><div class="line"> &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>以上代码表明嵌套函数作为函数调用this值不是window就是underfind。如果嵌套函数想访问稳步this，要将this付给一变量，如<code>var that = this;</code>，调用that即可。</p>
+<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p>先来一段代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function a(y) &#123;</div><div class="line">	return this.x + y</div><div class="line">&#125;</div><div class="line">var b = &#123;</div><div class="line">	x: 23,</div><div class="line">&#125;</div><div class="line">a.bind(b,2)(); // 25 也可以是a.bind(b)(2)</div></pre></td></tr></table></figure></p>
+<p>bind绑定完this不会立即执行函数，会生成一个新的函数，需要再掉用一次函数。而call和apply会立即执行。<br>也可以是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var c = a.bind(b); //a将作为b的函数来调用。通过c(2)来调用a.b(2);</div><div class="line">c(2); //25</div></pre></td></tr></table></figure></p>
+<p>绑定到函数：<br>如在对象中定义一个函数想要拿出用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var name = &quot;1&quot;;</div><div class="line">var obj = &#123;</div><div class="line">	name: &quot;007&quot;,</div><div class="line">	age: function()&#123;</div><div class="line">		return this.name;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">obj.age(); // &quot;007&quot;</div><div class="line"></div><div class="line">var b = obj.age;</div><div class="line">b(); // “1”  验证谁调用函数this指向谁</div></pre></td></tr></table></figure></p>
+<p>用bind就可以搞定：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var c = b.bind(obj);</div><div class="line">c() // “007”</div></pre></td></tr></table></figure></p>
+<p>bind和call、apply的联系及区别：<br>call和apply都是用另一个对象来替换当前调用方法的对象。<br>bind：和call,apply一样都是替换调用方法的对象。<br>不同之处：bind生成的是一个新的函数表达式，没有立即调用，而call和apply是立即调用。<br>call和apply的区别：<br>传参方式不同，call是一个个传，apply是传一个数组，如代码示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var a = 12;</div><div class="line">var b = &#123;</div><div class="line">	a: 14,</div><div class="line">	getA: () =&gt; &#123;</div><div class="line">		console.log(this.a);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>想要使getA调用a变量，如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">b.getA.call(this); // 12</div><div class="line">b.getA.apply(this); // 12</div><div class="line">b.getA.bind(this)(); // 12</div></pre></td></tr></table></figure></p>
+<p><strong>用途</strong></p>
+<ul>
+<li><p>实现继承：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function A(num)&#123;</div><div class="line">	this.a = num,</div><div class="line">	this.getA = () =&gt; &#123;</div><div class="line">		console.log(this.a);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">function B(num)&#123;</div><div class="line">	A.call(this, num); // 改变了上下文环境，this的指向，B继承了A的所有方法。</div><div class="line">&#125;</div><div class="line">var b = new B(12);</div><div class="line">b.getA();    // 12</div></pre></td></tr></table></figure>
+</li>
+<li><p>获取数组最大值：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var a = [1,23,131,343,231,2,88];</div><div class="line">Math.max.apply(this,a); // 343</div></pre></td></tr></table></figure>
+</li>
+<li><p>合并数组：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var arr1 = [1,23,34,23,12,120];</div><div class="line">var arr2 = [88,&quot;wweu&quot;,&quot;jf&quot;,&quot;oio&quot;];</div><div class="line">Array.prototype.push.apply(arr1,arr2);</div><div class="line">arr1; // [1, 23, 34, 23, 12, 120, 88,&quot;wweu&quot;, &quot;jf&quot;, &quot;oio&quot;]</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<ul>
+<li>参考文章：<br><a href="https://github.com/hanzichi/underscore-analysis/issues/18" target="_blank" rel="external">github</a></li>
+</ul>
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/js/">js</a>
+
+            </div>
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/17/gulp/"  data-tooltip="gulp入门随即用">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/09/select2/" data-tooltip="项目中常用的select2用法">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://toringo.github.io/2016/10/09/bind/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://toringo.github.io/2016/10/09/bind/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://toringo.github.io/2016/10/09/bind/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2016 Toringo. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/17/gulp/"  data-tooltip="gulp入门随即用">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/09/select2/" data-tooltip="项目中常用的select2用法">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://toringo.github.io/2016/10/09/bind/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://toringo.github.io/2016/10/09/bind/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://toringo.github.io/2016/10/09/bind/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://toringo.github.io/2016/10/09/bind/">
+                <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://toringo.github.io/2016/10/09/bind/">
+                <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://toringo.github.io/2016/10/09/bind/">
+                <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        
+
+
+    
+        
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="/assets/images/champion.png"/>
+        
+            <h4 id="about-card-name">Toringo</h4>
+        
+            <h5 id="about-card-bio"><p>author.bio</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </h5>
+        
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script-i4qo6jx6jji9fg0dftpya6ivemizsbow4fhow76d8dwpm7m1wbvi378ssumx.min.js"></script>
+<!--SCRIPTS END-->
+
+    
+
+
+
+</html>

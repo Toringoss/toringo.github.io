@@ -1,0 +1,523 @@
+
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Toringo&#39;s blog">
+    <title>sass入门 - Toringo&#39;s blog</title>
+    <meta name="author" content="Toringo">
+    
+    
+    
+    <meta name="description" content="Sass is the most mature, stable, and powerful professional grade CSS extension language in the world.   —–摘自官网Sass是最成熟、稳定和强大的专业级CSS扩展语言在世界上。">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="sass入门">
+<meta property="og:url" content="https://toringo.github.io/2016/11/29/sass/index.html">
+<meta property="og:site_name" content="Toringo's blog">
+<meta property="og:description" content="Sass is the most mature, stable, and powerful professional grade CSS extension language in the world.   —–摘自官网Sass是最成熟、稳定和强大的专业级CSS扩展语言在世界上。">
+<meta property="og:image" content="https://toringo.github.io/images/scss.png">
+<meta property="og:image" content="https://toringo.github.io/images/compass.jpg">
+<meta property="og:image" content="https://toringo.github.io/images/normalize.jpg">
+<meta property="og:updated_time" content="2016-11-29T10:27:47.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="sass入门">
+<meta name="twitter:description" content="Sass is the most mature, stable, and powerful professional grade CSS extension language in the world.   —–摘自官网Sass是最成熟、稳定和强大的专业级CSS扩展语言在世界上。">
+<meta name="twitter:image" content="https://toringo.github.io/images/scss.png">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="https://toringo.github.io/assets/images/champion.png"/>
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-nuvue6sithwirecbhvw3dkaobiojqvtadsnhguwi7k04xklybw5djl1smadp.min.css">
+    <!--STYLES END-->
+    
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-85099518-1']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+<header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Toringo&#39;s blog</a>
+    </h1>
+    
+        
+            <a  class="header-right-icon open-algolia-search"
+                href="#search">
+        
+        
+            <i class="fa fa-lg fa-search"></i>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+
+        
+    
+
+<nav id="sidebar" data-behavior="3">
+    
+        <div class="sidebar-profile">
+            <a href="/#about">
+                    <img class="sidebar-profile-picture" src="/assets/images/champion.png"/>
+            </a>
+            <span class="sidebar-profile-name">Toringo</span>
+        </div>
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Home</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categories</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Tags</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archives</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">About</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://github.com/guotao007" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+                    <span class="sidebar-button-desc">GitHub</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="mailto:dashentao007@163.com" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-envelope-o"></i>
+                    <span class="sidebar-button-desc">Mail</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="3"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            sass入门
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" datetime="2016-11-29T18:27:47+08:00">
+	
+		    Nov 29, 2016
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/css/">css</a>
+
+
+    
+</div>
+
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p><img src="/images/scss.png" alt="image"><br>Sass is the most mature, stable, and powerful professional grade CSS extension language in the world.   —–摘自官网<br>Sass是最成熟、稳定和强大的专业级CSS扩展语言在世界上。</p>
+<a id="more"></a>
+<h3 id="sass有两种后缀名Sass-和-Scss"><a href="#sass有两种后缀名Sass-和-Scss" class="headerlink" title="sass有两种后缀名Sass 和 Scss"></a>sass有两种后缀名Sass 和 Scss</h3><h4 id="区别："><a href="#区别：" class="headerlink" title="区别："></a>区别：</h4><p>sass是用缩进的语法书写，不带括号和分号。</p>
+<h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><ul>
+<li>单文件编译：<code>sass &lt;要编译文件路径&gt;:&lt;要输出文件路径&gt;</code></li>
+<li>多文件变编译： <code>sass sass/:css/</code>,将sass文件夹下的都编译到对应的css文件夹下。</li>
+<li>实时监听编译： <code>sass --watch &lt;要编译文件路径&gt;:&lt;要输出文件路径&gt;</code>,这样当要编译的文件发生变化就可实时编译；</li>
+</ul>
+<h3 id="不同的输出方式"><a href="#不同的输出方式" class="headerlink" title="不同的输出方式"></a>不同的输出方式</h3><ul>
+<li>嵌套输出方式 nested。编译的时候带参数：sass –watch test1.scss:test1.css –style nested</li>
+<li>展开输出方式 expanded:   sass –watch test.scss:test.css –style expanded.这个输出的风格和nested一样，只是大括号另起一行。</li>
+<li>紧凑输出方式 compact ：  sass –watch test.scss:test.css –style compact。输出不会换行。</li>
+<li>压缩输出方式 compressed： sass –watch test.scss:test.css –style compressed。<h3 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h3>利用sourceMap在浏览器中调试；<br><code>sass --watch --scss --sourcemap style.scss:style.css expanded</code>。注意在3.3以上版本，不需要添加<code>--scss --sourcemap</code>就可以调试。<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3></li>
+<li>变量命名： $color: red</li>
+<li>默认变量： $color: red !default;</li>
+<li>选择器嵌套.</li>
+<li><p>属性嵌套：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.box &#123;</div><div class="line">   font: &#123;</div><div class="line">     size: 12px;</div><div class="line">     weight: bold;</div><div class="line">   &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>伪类嵌套</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">  &amp;:after &#123;</div><div class="line">    content:&quot;伪元素嵌套&quot;;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>声明公用的宏@mixin</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">@mixin border-radius&#123;</div><div class="line">    -webkit-border-radius: 5px;</div><div class="line">    border-radius: 5px;</div><div class="line">&#125;</div><div class="line">@mixin border-radius($radius:5px)&#123;</div><div class="line">    -webkit-border-radius: $radius;</div><div class="line">    border-radius: $radius;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>调用： <code>@include border-radius;</code>或者<code>@include border-radius(10px);</code><br><em>注意</em> 不调用mixin，不会生成css;</p>
+<ul>
+<li><p>继承 <code>@extend [变量名]</code>，</p>
+<ul>
+<li>特点：可连续继承；可继承多个。</li>
+<li>使用%，构建只用来继承的选择器，不继承不会生成css；<br>注意<em>不能继承选择器序列</em> ：@extend .a .b；  </li>
+</ul>
+</li>
+<li><p>占位符 %placeholder.   如： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">%mt5 &#123;</div><div class="line">  margin-top: 5px;</div><div class="line">&#125;</div><div class="line">.btn&#123;@extend %mt5&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>代码块中涉及到变量，建议使用混合宏来创建相同的代码块。</p>
+</blockquote>
+<h3 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h3><blockquote>
+<p>以下运算都可以进行变量计算。</p>
+<ul>
+<li>加法： <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$a: 23px;</div><div class="line">$b: 23px;</div><div class="line">.c&#123;</div><div class="line">  margin-top: $a + $b;</div><div class="line">  font-size: $a + 10px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li><p>减法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">d&#123;</div><div class="line">  padding-left: $a - $b;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>乘法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$list: twitter,facebook,github,weibo;</div><div class="line"></div><div class="line">@for $i from 1 through length($list)&#123;</div><div class="line">  .icon-#&#123;nth($list,$i)&#125;&#123;</div><div class="line">    background-postion: 0 -20px * $i;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>除法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">d&#123;</div><div class="line">  padding-left: $a / $b;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>颜色运算</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">p &#123;</div><div class="line">  color: #010203 + #040506;</div><div class="line">&#125;</div><div class="line">p &#123;</div><div class="line">  color: #010203 * 2;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>字符运算</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">div &#123;</div><div class="line">  cursor: e + -resize;</div><div class="line">&#125;</div><div class="line">p:before &#123;</div><div class="line">  content: &quot;Foo &quot; + Bar;</div><div class="line">  font-family: sans- + &quot;serif&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="控制命令"><a href="#控制命令" class="headerlink" title="控制命令"></a>控制命令</h3><ul>
+<li><p>if</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">@mixin blockOrHidden($boolean:true) &#123;</div><div class="line">  @if $boolean &#123;</div><div class="line">    @debug &quot;$boolean is #&#123;$boolean&#125;&quot;;</div><div class="line">      display: block;</div><div class="line">    &#125;</div><div class="line">    @else &#123;</div><div class="line">      @debug &quot;$boolean is #&#123;$boolean&#125;&quot;;</div><div class="line">      display: none;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.block &#123;</div><div class="line">  @include blockOrHidden(true);</div><div class="line">&#125;</div><div class="line"></div><div class="line">.hidden&#123;</div><div class="line">  @include blockOrHidden(false);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>for<br>有两种方式：<br>@for $i from <start> through <end><br>@for $i from <start> to <end><br>区别： to 不会循环出end的，through包含end</end></start></end></start></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">//through</div><div class="line">@for $i from 1 through 3 &#123;</div><div class="line">  .item-#&#123;$i&#125; &#123; width: 2em * $i; &#125;</div><div class="line">&#125;</div><div class="line">//to</div><div class="line">@for $i from 1 to 3 &#123;</div><div class="line">  .item-#&#123;$i&#125; &#123; width: 2em * $i; &#125;</div><div class="line">&#125;</div><div class="line">// 常用的</div><div class="line">$gutter: 40px;</div><div class="line">$width: 60px;</div><div class="line">$gutter-col: span !default;</div><div class="line">%grid&#123;</div><div class="line">  float: left;</div><div class="line">  margin: $gutter / 2 0;</div><div class="line">  padding: $gutter / 4 0;</div><div class="line">&#125;</div><div class="line">@for $i from 1 through 12&#123;</div><div class="line">  .#&#123;$gutter-col&#125;#&#123;$i&#125;&#123;</div><div class="line">    width: $width * $i + $gutter * ($i - 1);</div><div class="line">    @extend %grid;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>while</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$num: 6;</div><div class="line">$width: 200px;</div><div class="line">@while $num &gt; 0&#123;</div><div class="line">  .span-#&#123;$num&#125;&#123;</div><div class="line">    width: $width * $num;</div><div class="line">  &#125;</div><div class="line">  $num: $num - 1;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>each循环</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$list: top left right bottom;</div><div class="line">@mixin position&#123;</div><div class="line">  @each $var in $list &#123;</div><div class="line">   .position-#&#123;$var&#125;&#123;</div><div class="line">     border-#&#123;$var&#125;: 10px solid #ddd;</div><div class="line">   &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">.each&#123;</div><div class="line">  @include position;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="高级用法"><a href="#高级用法" class="headerlink" title="高级用法"></a>高级用法</h3><ul>
+<li>css选择器在浏览器中是从右边向左边遍历查找，所以sass语法的嵌套无疑加重浏览器渲染的难度，那sass有什么办法那？别忘了官网的那句话不是吹牛逼的哦，做法如下：<br>常见sass写法：  </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">.main&#123;</div><div class="line">	font-size: 24px;</div><div class="line">	.left&#123;</div><div class="line">		font-size: 20px;</div><div class="line">		color: red;</div><div class="line">		.center&#123;</div><div class="line">			text-align: center;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	.right&#123;</div><div class="line">		color: blue;</div><div class="line">		margin-top: 0;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>经过编译后是这样的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">/* line 5, ../sass/test.scss */</div><div class="line">.main &#123;</div><div class="line">  font-size: 24px;</div><div class="line">&#125;</div><div class="line">/* line 7, ../sass/test.scss */</div><div class="line">.main .left &#123;</div><div class="line">  font-size: 20px;</div><div class="line">  color: red;</div><div class="line">&#125;</div><div class="line">/* line 10, ../sass/test.scss */</div><div class="line">.main .left .center &#123;</div><div class="line">  text-align: center;</div><div class="line">&#125;</div><div class="line">/* line 14, ../sass/test.scss */</div><div class="line">.main .right &#123;</div><div class="line">  color: blue;</div><div class="line">  margin-top: 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>看看最佳实践是怎么写的：注意<strong>@at-root</strong>的用法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">.main&#123;</div><div class="line">	font-size: 24px;</div><div class="line">	@at-root .main-left&#123;</div><div class="line">		font-size: 20px;</div><div class="line">		color: red;</div><div class="line">		@at-root .main-left-center&#123;</div><div class="line">			text-align: center;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	@at-root .right&#123;</div><div class="line">		color: blue;</div><div class="line">		margin-top: 0;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>编译后的css:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">/* line 20, ../sass/test.scss */</div><div class="line">.main &#123;</div><div class="line">  font-size: 24px;</div><div class="line">&#125;</div><div class="line">/* line 22, ../sass/test.scss */</div><div class="line">.main-left &#123;</div><div class="line">  font-size: 20px;</div><div class="line">  color: red;</div><div class="line">&#125;</div><div class="line">/* line 25, ../sass/test.scss */</div><div class="line">.main-left-center &#123;</div><div class="line">  text-align: center;</div><div class="line">&#125;</div><div class="line">/* line 29, ../sass/test.scss */</div><div class="line">.right &#123;</div><div class="line">  color: blue;</div><div class="line">  margin-top: 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<ul>
+<li>sass中mixin类型判断<br>譬如在mixin函数中只能输入百分比，校验如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">@mixin col($width: 50%)&#123;</div><div class="line">  @if type-of($width) != number &#123;</div><div class="line">    @error &quot;$width必须是一个数值类型&quot;;</div><div class="line">  &#125;</div><div class="line">  @if not unitless($width) &#123;</div><div class="line">    @if unit($width) != &quot;%&quot; &#123;</div><div class="line">      @error &quot;$width应该是一个百分比,比输入的是`#&#123;$width&#125;`&quot;;</div><div class="line">    &#125;</div><div class="line">  &#125; @else &#123;</div><div class="line">    @error &quot;$width应该是一个百分比&quot;;</div><div class="line">  &#125;</div><div class="line">  width: $width;</div><div class="line">  float: left;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="compass-用法"><a href="#compass-用法" class="headerlink" title="compass 用法"></a>compass 用法</h3><blockquote>
+<p>Compass is an open-source CSS Authoring Framework. —- 引自官网<br>compass是一个开源的CSS编辑框架。  </p>
+</blockquote>
+<p>compass有六大模块，如图:<br><img src="/images/compass.jpg" alt="compass"><br>想了解更多： <a href="http://compass-style.org/" target="_blank" rel="external">compass</a><br>替代compass/reset更好的方法，用normalize，normalize有8大模块，也可分别引入：<br><img src="/images/normalize.jpg" alt="normalize"><br>Normalize.css 是一个可以定制的CSS文件，它让不同的浏览器在渲染网页元素的时候形式更统一。<br>Normalize.css 能干什么：</p>
+<ul>
+<li>保留有用的默认值，不同于许多 CSS 的重置</li>
+<li>标准化的样式，适用范围广的元素。</li>
+<li>纠正错误和常见的浏览器的不一致性。</li>
+<li>一些细微的改进，提高了易用性。</li>
+<li>使用详细的注释来解释代码。</li>
+</ul>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>sass在compressed下输出文件，需要压缩保留注释的做法： <code>/*! 注释 */</code></p>
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/css/">css</a>
+
+            </div>
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/11/29/linux/" data-tooltip="Linux常用命令">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://toringo.github.io/2016/11/29/sass/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://toringo.github.io/2016/11/29/sass/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://toringo.github.io/2016/11/29/sass/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2016 Toringo. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/11/29/linux/" data-tooltip="Linux常用命令">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://toringo.github.io/2016/11/29/sass/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://toringo.github.io/2016/11/29/sass/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://toringo.github.io/2016/11/29/sass/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://toringo.github.io/2016/11/29/sass/">
+                <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://toringo.github.io/2016/11/29/sass/">
+                <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://toringo.github.io/2016/11/29/sass/">
+                <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        
+
+
+    
+        
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="/assets/images/champion.png"/>
+        
+            <h4 id="about-card-name">Toringo</h4>
+        
+            <h5 id="about-card-bio"><p>author.bio</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </h5>
+        
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script-i4qo6jx6jji9fg0dftpya6ivemizsbow4fhow76d8dwpm7m1wbvi378ssumx.min.js"></script>
+<!--SCRIPTS END-->
+
+    
+
+
+
+</html>

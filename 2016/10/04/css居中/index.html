@@ -1,0 +1,471 @@
+
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Toringo&#39;s blog">
+    <title>css让元素居中的方式 - Toringo&#39;s blog</title>
+    <meta name="author" content="Toringo">
+    
+    
+    
+    <meta name="description" content="在网页布局中我们经常遇到水平居中和垂直居中，下面为分别展示我总结的常见的布局方式（亲测有效）。
+
+垂直居中
+最常用的垂直居中方式：  line-height 设置成和height一样高，或者设为：line-height:1;  常见的图片在块级元素用vertical-align:middle使其垂直居中。  table-cell + vertical-align:.parent {
+  disp">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="css让元素居中的方式">
+<meta property="og:url" content="https://toringo.github.io/2016/10/04/css居中/index.html">
+<meta property="og:site_name" content="Toringo's blog">
+<meta property="og:description" content="在网页布局中我们经常遇到水平居中和垂直居中，下面为分别展示我总结的常见的布局方式（亲测有效）。
+
+垂直居中
+最常用的垂直居中方式：  line-height 设置成和height一样高，或者设为：line-height:1;  常见的图片在块级元素用vertical-align:middle使其垂直居中。  table-cell + vertical-align:.parent {
+  disp">
+<meta property="og:updated_time" content="2016-10-09T14:55:57.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="css让元素居中的方式">
+<meta name="twitter:description" content="在网页布局中我们经常遇到水平居中和垂直居中，下面为分别展示我总结的常见的布局方式（亲测有效）。
+
+垂直居中
+最常用的垂直居中方式：  line-height 设置成和height一样高，或者设为：line-height:1;  常见的图片在块级元素用vertical-align:middle使其垂直居中。  table-cell + vertical-align:.parent {
+  disp">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="https://toringo.github.io/assets/images/champion.png"/>
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-nuvue6sithwirecbhvw3dkaobiojqvtadsnhguwi7k04xklybw5djl1smadp.min.css">
+    <!--STYLES END-->
+    
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-85099518-1']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+<header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Toringo&#39;s blog</a>
+    </h1>
+    
+        
+            <a  class="header-right-icon open-algolia-search"
+                href="#search">
+        
+        
+            <i class="fa fa-lg fa-search"></i>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+
+        
+    
+
+<nav id="sidebar" data-behavior="3">
+    
+        <div class="sidebar-profile">
+            <a href="/#about">
+                    <img class="sidebar-profile-picture" src="/assets/images/champion.png"/>
+            </a>
+            <span class="sidebar-profile-name">Toringo</span>
+        </div>
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Home</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categories</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Tags</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archives</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">About</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://github.com/guotao007" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+                    <span class="sidebar-button-desc">GitHub</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="mailto:dashentao007@163.com" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-envelope-o"></i>
+                    <span class="sidebar-button-desc">Mail</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="3"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            css让元素居中的方式
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" datetime="2016-10-04T06:42:36+08:00">
+	
+		    Oct 04, 2016
+    	
+    </time>
+    
+</div>
+
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <blockquote>
+<p>在网页布局中我们经常遇到水平居中和垂直居中，下面为分别展示我总结的常见的布局方式（亲测有效）。</p>
+</blockquote>
+<h3 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h3><ul>
+<li>最常用的垂直居中方式：<br>  line-height 设置成和height一样高，或者设为：<code>line-height:1</code>;<br>  常见的图片在块级元素用<code>vertical-align:middle</code>使其垂直居中。<br>  table-cell + vertical-align:<br><code>.parent {
+  display: table-cell;
+  vertical-align: middle;
+}</code><br>更多，见详情，，，<a id="more"></a></li>
+<li>绝对定位中使用负边距使其居中，代码如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;div1&quot;&gt;</div><div class="line">&lt;div id=&quot;div2&quot;&gt;div2&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">#div1&#123;</div><div class="line">	position:relative;</div><div class="line">&#125;</div><div class="line">#div2&#123;</div><div class="line">	position:absolute;</div><div class="line">	top: 50%;</div><div class="line">	left: 50%;</div><div class="line">	height: 30%;</div><div class="line">	width: 50%;</div><div class="line">	margin: -15% 0 0 -25%;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>还有一中绝对定位使其居中的办法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;div1&quot;&gt;</div><div class="line">&lt;div id=&quot;div2&quot;&gt;div2&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">#div1&#123;</div><div class="line">	position:relative;</div><div class="line">&#125;</div><div class="line">#div2&#123;</div><div class="line">  position: absolute;</div><div class="line">  top:0;</div><div class="line">  left:0;</div><div class="line">  bottom:0;</div><div class="line">  right: 0;</div><div class="line">  width:50%;</div><div class="line">  height:50%;</div><div class="line">  background: #333;</div><div class="line">  margin: auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<ul>
+<li><p>padding方法垂直居中<br>最神奇的方法，还可以达到长宽比在一定的比例响应式缩小放大。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;div1&quot;&gt;</div><div class="line"> &lt;div id=&quot;div2&quot;&gt;dsfsf&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">#div1 &#123;</div><div class="line">  padding: 3% 0;</div><div class="line">  background:#eee;</div><div class="line">&#125;</div><div class="line">#div2 &#123;</div><div class="line">  padding: 1% 0;</div><div class="line">  background:#333</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>真正的垂直居中：弹性盒模型（只有IE11支持）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">.parent&#123;</div><div class="line">  background:#333;</div><div class="line">  display: -webkit-box;</div><div class="line">  display: -moz-box;</div><div class="line">  display: -ms-flexbox;</div><div class="line">  display: -webkit-flex;</div><div class="line">  display: flex;</div><div class="line">  -webkit-align-items: center;</div><div class="line">          align-items: center;</div><div class="line">  -webkit-justify-content: center;</div><div class="line">          justify-content: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>利用2D变换垂直居中：transform</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.child-vertical&#123;</div><div class="line">	position: relative;</div><div class="line">	top: 50%;</div><div class="line">	transform: translateY(-50%);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h3><ul>
+<li>常见的居中方式：<br><code>margin:[num]px auto</code>，为块级元素居中，前提是父元素的宽度必须已知.</li>
+<li><p>inline-block和text-align居中：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.child &#123;</div><div class="line">    display: inline-block;</div><div class="line">  &#125;</div><div class="line"> .parent &#123;</div><div class="line">   	text-align: center;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>table+margin</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.child &#123;</div><div class="line">   display: table;</div><div class="line">   margin: 0 auto;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p>此方法慎用，table容易造成布局混乱</p>
+</li>
+<li>绝对定位居中absolute + margin(负边距)</li>
+<li>absolute + transform(transformX(-50%))</li>
+<li><p>弹性盒模型水平居中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">.parent&#123;</div><div class="line">	display: -webkit-box;</div><div class="line">    display: -webkit-flex;</div><div class="line">    display: -moz-box;</div><div class="line">    display: -moz-flex;</div><div class="line">    display: -ms-flexbox;</div><div class="line">    display: flex;</div><div class="line">    -webkit-box-align: center;</div><div class="line">    -moz-box-align: center;</div><div class="line">    -ms-flex-pack:center;</div><div class="line">    -webkit-justify-content: center;</div><div class="line">    -moz-justify-content: center;</div><div class="line">    justify-content: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>绝对居中<br>垂直水平都居中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">.parent&#123;</div><div class="line">	position: relative;</div><div class="line">&#125;</div><div class="line">.child&#123;</div><div class="line">	margin:auto auto;</div><div class="line">	position:absolute;</div><div class="line">	top:0;</div><div class="line">	left:0;</div><div class="line">	right:0;</div><div class="line">	botttom:0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>inline-block + text-align + table-cell + vertical-align绝对居中，兼容性好</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.parent &#123;</div><div class="line">  text-align: center;</div><div class="line">  display: table-cell;</div><div class="line">  vertical-align: middle;</div><div class="line">&#125;</div><div class="line">.child &#123;</div><div class="line">  display: inline-block;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>absolute+transform</p>
+</li>
+<li>flex+justify-content+align-items</li>
+</ul>
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/layout/">layout</a>
+
+            </div>
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/07/layoutHtml/"  data-tooltip="常见的布局方式">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/01/ie8/" data-tooltip="神奇的IE8，">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://toringo.github.io/2016/10/04/css居中/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://toringo.github.io/2016/10/04/css居中/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://toringo.github.io/2016/10/04/css居中/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2016 Toringo. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/07/layoutHtml/"  data-tooltip="常见的布局方式">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/01/ie8/" data-tooltip="神奇的IE8，">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://toringo.github.io/2016/10/04/css居中/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://toringo.github.io/2016/10/04/css居中/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://toringo.github.io/2016/10/04/css居中/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://toringo.github.io/2016/10/04/css居中/">
+                <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://toringo.github.io/2016/10/04/css居中/">
+                <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://toringo.github.io/2016/10/04/css居中/">
+                <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        
+
+
+    
+        
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="/assets/images/champion.png"/>
+        
+            <h4 id="about-card-name">Toringo</h4>
+        
+            <h5 id="about-card-bio"><p>author.bio</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </h5>
+        
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script-i4qo6jx6jji9fg0dftpya6ivemizsbow4fhow76d8dwpm7m1wbvi378ssumx.min.js"></script>
+<!--SCRIPTS END-->
+
+    
+
+
+
+</html>
