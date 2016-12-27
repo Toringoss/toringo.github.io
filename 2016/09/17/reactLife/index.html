@@ -11,31 +11,19 @@
     
     
     
-    <meta name="description" content="一个组件的声明周期可以理解为三个阶段：
-
-
-mounting 组件正在插入到 DOM 中
-updating 组件正在重新注入新数据后更新到 DOM 中
-unmounting 组件从 DOM 中移除……">
+    <meta name="description" content="对react生命周期的重新理解：">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="理解react组件的生命周期">
 <meta property="og:url" content="https://toringo.github.io/2016/09/17/reactLife/index.html">
 <meta property="og:site_name" content="Toringo's blog">
-<meta property="og:description" content="一个组件的声明周期可以理解为三个阶段：
-
-
-mounting 组件正在插入到 DOM 中
-updating 组件正在重新注入新数据后更新到 DOM 中
-unmounting 组件从 DOM 中移除……">
-<meta property="og:updated_time" content="2016-09-22T23:46:37.000Z">
+<meta property="og:description" content="对react生命周期的重新理解：">
+<meta property="og:image" content="https://toringo.github.io/images/react-life.png">
+<meta property="og:image" content="https://toringo.github.io/images/reactLife.png">
+<meta property="og:updated_time" content="2016-12-16T16:08:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="理解react组件的生命周期">
-<meta name="twitter:description" content="一个组件的声明周期可以理解为三个阶段：
-
-
-mounting 组件正在插入到 DOM 中
-updating 组件正在重新注入新数据后更新到 DOM 中
-unmounting 组件从 DOM 中移除……">
+<meta name="twitter:description" content="对react生命周期的重新理解：">
+<meta name="twitter:image" content="https://toringo.github.io/images/react-life.png">
     
     
         
@@ -213,50 +201,63 @@ unmounting 组件从 DOM 中移除……">
     	
     </time>
     
+        <span>en </span>
+        
+    <a class="category-link" href="/categories/react/">react</a>
+
+
+    
 </div>
 
 </div>
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <blockquote>
+            <p><img src="/images/react-life.png" alt="image"><br>对react生命周期的重新理解：<br><a id="more"></a></p>
 <p>一个组件的声明周期可以理解为三个阶段：</p>
-</blockquote>
 <ul>
-<li><em>mounting</em> 组件正在插入到 DOM 中</li>
-<li><em>updating</em> 组件正在重新注入新数据后更新到 DOM 中</li>
-<li><em>unmounting</em> 组件从 DOM 中移除<br>……<a id="more"></a>
-</li>
+<li>初始化阶段：<em>mounting</em> 组件正在插入到 DOM 中</li>
+<li>运行中状态：<em>updating</em> 组件正在重新注入新数据后更新到 DOM 中</li>
+<li>销毁阶段：<em>unmounting</em> 组件从 DOM 中移除  </li>
 </ul>
-<h2 id="mounting-阶段"><a href="#mounting-阶段" class="headerlink" title="mounting 阶段"></a>mounting 阶段</h2><ul>
+<h2 id="mounting-阶段"><a href="#mounting-阶段" class="headerlink" title="mounting 阶段"></a>mounting 阶段</h2><p>执行顺序：getDefaultProps =&gt; getInitialState =&gt; componentWillMount =&gt; render =&gt; componentDidMount</p>
+<ul>
 <li><p>getInitialState() 首先被被调用，返回原始数据，默认的数据。</p>
 </li>
-<li><p>componentWillMount() 在组件 mounting 前调用，即将调用。</p>
+<li><p>componentWillMount() 组件即将被装载、渲染到页面上（render之前最好一次修改状态的机会.</p>
 </li>
 <li><p>componentDidMount() 在组件 mounting 完成后调用，</p>
 </li>
 </ul>
-<h2 id="updating-阶段"><a href="#updating-阶段" class="headerlink" title="updating 阶段"></a>updating 阶段</h2><ul>
-<li><p>componentWillReceiveProps(nextProps) 在接收到新的 props 时调用</p>
+<h2 id="updating-阶段"><a href="#updating-阶段" class="headerlink" title="updating 阶段"></a>updating 阶段</h2><p>componentWillReceiveProps =&gt; shouldComponentUpdate =&gt; componentWillUpdate =&gt; render =&gt; componentDidUpdate</p>
+<ul>
+<li><p>componentWillReceiveProps(nextProps) 在接收到新的 props 时调用<br>  nextProps: 表示所有props对象，</p>
 </li>
-<li><p>shouldComponentUpdate(nextProps, nextState) 在组件需要更新 DOM 时调用，若这个函数返回 false 则告诉 React 不要更新, 如定时器到多少停止，或者倒计时组件等。</p>
+<li><p>shouldComponentUpdate(nextProps, nextState) 组件接受到新属性或者新状态的时候,在组件需要更新 DOM 时调用，若这个函数返回 false 则告诉 React 不要更新, 如定时器到多少停止，或者倒计时组件等。</p>
 </li>
-<li><p>componentWillUpdate(nextProps, nextState) 在更新发生时调用，可以在这里调用 this.setState() 刷新数据</p>
+<li><p>componentWillUpdate(nextProps, nextState) 不能修改属性和状态</p>
 </li>
-<li>componentDidUpdate(prevProps, prevState) 在更新完成后调用</li>
+<li>componentDidUpdate(prevProps, prevState) 在这里可以修改DOM</li>
 </ul>
 <h2 id="unmounting-阶段"><a href="#unmounting-阶段" class="headerlink" title="unmounting 阶段"></a>unmounting 阶段</h2><ul>
-<li>componentWillUnmount() 在组件移除时被调用，在这里可以对数据进行清理，譬如清除定时器，绑定的事件等。</li>
+<li>componentWillUnmount() 在组件移除时被调用，在这里可以对数据进行清理，譬如清除定时器，绑定的事件等。<br>  如：<code>React.unmountComponentAtNode(document.getElementById(&quot;container&quot;));</code></li>
 </ul>
 <h2 id="强制使用数据更新组件"><a href="#强制使用数据更新组件" class="headerlink" title="强制使用数据更新组件"></a>强制使用数据更新组件</h2><ul>
 <li>forceUpdate() 强制使用数据更新组件，而不用调用 this.setState()</li>
 </ul>
-<h2 id="浏览器的执行顺序"><a href="#浏览器的执行顺序" class="headerlink" title="浏览器的执行顺序"></a>浏览器的执行顺序</h2><p><strong>render时自动执行的顺序:</strong><br>getInitialState()  –&gt; componentWillMount()  –&gt;  render()  –&gt;  componentDidMount()  –&gt; componentUnMount<br><strong>更新state时的执行的函数:</strong><br>componentWillReceiveProps -&gt; shouldComponentUpdate (return true继续执行，如果return false停止) -&gt; componentWillUpdate -&gt; render() -&gt; componentDidUpdate()</p>
+<h2 id="浏览器的执行顺序"><a href="#浏览器的执行顺序" class="headerlink" title="浏览器的执行顺序"></a>浏览器的执行顺序</h2><p>上图，有图为证：<br><img src="/images/reactLife.png" alt="images"><br><strong>render时自动执行的顺序:</strong><br>getInitialState()  –&gt; componentWillMount()  –&gt;  render()  –&gt;  componentDidMount()  –&gt; componentUnMount<br><strong>更新state时的执行的函数:</strong><br>componentWillReceiveProps -&gt; shouldComponentUpdate (return true继续执行，如果return false停止) -&gt; componentWillUpdate -&gt; render() -&gt; componentDidUpdate()</p>
 
             
         </div>
     </div>
     <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">ETIQUETADO EN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/react/">react</a>
+
+            </div>
         
         <div class="post-actions-wrap">
     <nav>

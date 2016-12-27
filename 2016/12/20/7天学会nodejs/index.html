@@ -6,23 +6,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Toringo&#39;s blog">
-    <title>项目中常用的select2用法 - Toringo&#39;s blog</title>
+    <title> - Toringo&#39;s blog</title>
     <meta name="author" content="Toringo">
     
     
     
-    <meta name="description" content="select2兼容性好，是兼多选、搜索、添加和兼容性（IE7+）等功能的优秀的基于jQuery的选择框插件。​">
+    <meta name="description" content="nodejs
+exports和module.exports的区别
+
+module.exports 初始值为一个空对象 {}
+exports 是指向的 module.exports 的引用
+require() 返回的是 module.exports 而不是 exports
+
+
+npm需要注意的：
+
+-S ：等价于 –save
+
+npm i 等价于 nam install
+
+npm i express">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="项目中常用的select2用法">
-<meta property="og:url" content="https://toringo.github.io/2016/10/09/select2/index.html">
+<meta property="og:title" content="Toringo's blog">
+<meta property="og:url" content="https://toringo.github.io/2016/12/20/7天学会nodejs/index.html">
 <meta property="og:site_name" content="Toringo's blog">
-<meta property="og:description" content="select2兼容性好，是兼多选、搜索、添加和兼容性（IE7+）等功能的优秀的基于jQuery的选择框插件。​">
-<meta property="og:image" content="https://toringo.github.io/images/select2.png">
-<meta property="og:updated_time" content="2016-12-27T09:14:12.000Z">
+<meta property="og:description" content="nodejs
+exports和module.exports的区别
+
+module.exports 初始值为一个空对象 {}
+exports 是指向的 module.exports 的引用
+require() 返回的是 module.exports 而不是 exports
+
+
+npm需要注意的：
+
+-S ：等价于 –save
+
+npm i 等价于 nam install
+
+npm i express">
+<meta property="og:updated_time" content="2016-12-21T15:40:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="项目中常用的select2用法">
-<meta name="twitter:description" content="select2兼容性好，是兼多选、搜索、添加和兼容性（IE7+）等功能的优秀的基于jQuery的选择框插件。​">
-<meta name="twitter:image" content="https://toringo.github.io/images/select2.png">
+<meta name="twitter:title" content="Toringo's blog">
+<meta name="twitter:description" content="nodejs
+exports和module.exports的区别
+
+module.exports 初始值为一个空对象 {}
+exports 是指向的 module.exports 的引用
+require() 返回的是 module.exports 而不是 exports
+
+
+npm需要注意的：
+
+-S ：等价于 –save
+
+npm i 等价于 nam install
+
+npm i express">
     
     
         
@@ -190,13 +230,13 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title" itemprop="headline">
-            项目中常用的select2用法
+            (sin título)
         </h1>
     
     <div class="post-meta">
-    <time itemprop="datePublished" datetime="2016-10-09T22:53:06+08:00">
+    <time itemprop="datePublished" datetime="2016-12-20T21:11:52+08:00">
 	
-		    09 Oct 2016
+		    20 Dec 2016
     	
     </time>
     
@@ -206,41 +246,52 @@
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <p><img src="/images/select2.png" alt="image"><br>select2兼容性好，是兼多选、搜索、添加和兼容性（IE7+）等功能的优秀的基于jQuery的选择框插件。<br>​    </p>
-<h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><h3 id="常见用法"><a href="#常见用法" class="headerlink" title="常见用法"></a>常见用法</h3><p>代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;select id=&quot;name&quot;&gt;&lt;/select&gt;</div><div class="line">$(&quot;#name&quot;).select2()</div></pre></td></tr></table></figure></p>
-<p>这样即可生效。</p>
+            <h2 id="nodejs"><a href="#nodejs" class="headerlink" title="nodejs"></a>nodejs</h2><ul>
+<li><p>exports和module.exports的区别</p>
 <ul>
-<li><p>类似input框中的placeholder配置：</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$(&quot;#name&quot;).select2(&#123;</div><div class="line">    placeholder: &apos;提示语&apos;,</div><div class="line">    data: [</div><div class="line">    	&#123;</div><div class="line">    		 text: item.customerNumber,</div><div class="line">             id: item.id</div><div class="line">    	&#125;,        	</div><div class="line">    ],    // 数据必须是text和id对象的形式</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<li>module.exports 初始值为一个空对象 {}</li>
+<li>exports 是指向的 module.exports 的引用</li>
+<li>require() 返回的是 module.exports 而不是 exports</li>
+</ul>
 </li>
-<li><p>多选配置：select标签加<code>multiple=&quot;multiple&quot;</code>属性即可；</p>
+<li><p>npm需要注意的：</p>
+<ul>
+<li><p>-S ：等价于 –save</p>
 </li>
-<li>多选最多可选择的个数：<code>maximumSelectionLength: [num]</code></li>
-<li>禁止选择：select标签加<code>disabled&quot;</code>属性即可；</li>
-<li>清空已选择的项：<code>$(&quot;#name&quot;).val(null).trigger(&quot;change&quot;)</code></li>
-<li>操作设置选中的：<code>$(&quot;#name&quot;).val([&quot;CA&quot;, &quot;AL&quot;]).trigger(&quot;change&quot;)</code>；</li>
-<li>手动打开关闭：<code>$(&quot;#name&quot;).seltokenSeparators: [&#39;,&#39;, &#39; &#39;]ect2(&#39;open/close&#39;)</code></li>
-<li>可以新增没有在选项内的：在select2中配置参数<code>{tags: true}</code></li>
-<li>影藏单选的搜索框：<code>minimumResultsForSearch: Infinity</code></li>
-<li>select2的事件：<ul>
-<li>选中后回调的事件<code>$(&#39;#name&#39;).on(&quot;select2:select&quot;, (e)=&gt;{console.log(e)})</code>,e中包含选中的选项信息</li>
-<li>当select展开时候的事件：<code>$(&#39;#name&#39;).on(&quot;select2:open&quot;, () =&gt; {});</code></li>
-<li>当select关闭时绑定的事件： <code>$(&#39;#name&#39;).on(&quot;select2:close&quot;, () =&gt; {});</code></li>
-<li>当删除select选中时绑定的事件： <code>$(&#39;#name&#39;).on(&quot;select2:unselect&quot;, () =&gt; {});</code></li>
+<li><p>npm i 等价于 nam install</p>
+</li>
+<li><p>npm i express –save –save-exact，可以将版本号写入dependencies，推荐写法；</p>
+<p>运行以下命令，在以后的安装中都会锁定版本号，相当于加了–save-exact；<br>npm config set save-exact true。（<code>npm config set</code> 命令将配置写到了 ~/.npmrc 文件，运行 <code>npm config list</code> 查看。）</p>
+</li>
+<li><p>npm script 提供了强大的缩写命令功能，如<code>npm start</code> 等价于 <code>npm run start</code>；<code>npm test</code> 等价于 <code>npm run test</code></p>
+</li>
+<li><p>运行npm shrinkwrap会生成npm-shrinkwrap.json，将版本锁定，则运行 <code>npm install</code> 的时候会优先使用 npm-shrinkwrap.json 进行安装，没有则使用 package.json 进行安装。ps：如果node_modules下存在的某个模块在package.json中没有，运行npm shrinkwrap会报错，另外，<code>npm shrinkwrap</code> 只会生成 dependencies 的依赖，不会生成 devDependencies 的。</p>
+</li>
+<li><p>supervisor和nodemon，supervisor和nodemon 会监听当前目录下 node 和 js 后缀的文件，当这些文件发生改动时，supervisor 会自动重启程序；如supervisor –harmony index, nodemon —exec babel-node ./</p>
+</li>
+</ul>
+</li>
+<li><p>express</p>
+<h5 id="先启一个简单node服务："><a href="#先启一个简单node服务：" class="headerlink" title="先启一个简单node服务："></a>先启一个简单node服务：</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</div><div class="line"><span class="keyword">var</span> app = express();</div><div class="line"></div><div class="line">app.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</div><div class="line">  res.send(<span class="string">'hello, express'</span>);</div><div class="line">&#125;);</div><div class="line"><span class="comment">// 路由， name为占位符，可通过req.params.name获取name的值</span></div><div class="line">app.get(<span class="string">'/users/:name'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</div><div class="line">  res.send(<span class="string">'hello, '</span> + req.params.name);</div><div class="line">&#125;);</div><div class="line">	</div><div class="line">app.listen(<span class="number">3000</span>);</div></pre></td></tr></table></figure>
+<p>req 包含了请求来的相关信息，常用的req属性：</p>
+<ul>
+<li>req.query: 解析后的 url 中的 querystring，如 <code>?name=haha</code>，req.query 的值为 <code>{name: &#39;haha&#39;}</code></li>
 </ul>
 </li>
 </ul>
-<hr>
-<h3 id="ajax"><a href="#ajax" class="headerlink" title="ajax"></a>ajax</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">selectCoding() &#123;</div><div class="line">    $(&apos;#js-select2-client&apos;).select2(&#123;</div><div class="line">        ajax: &#123;</div><div class="line">            url: &quot;/api/mdm/syncCustomer&quot;,</div><div class="line">            dataType: &apos;json&apos;,</div><div class="line">            delay: 250,</div><div class="line">            allowClear: true,</div><div class="line">            data: function (params) &#123;</div><div class="line">                return &#123;</div><div class="line">                    code: params.term, // 手动输入的搜索条件</div><div class="line">                    page: params.page  // 分页</div><div class="line">                &#125;;</div><div class="line">            &#125;,</div><div class="line">            processResults: function (data, params) &#123;</div><div class="line">                console.log(data);    //搜索返回的值，返回数据中不含text和id，需要处理成符合的格式。</div><div class="line">                params.page = params.page || 1;  //返回的分页</div><div class="line">                const codingData = [];   </div><div class="line">                data.forEach((item) =&gt; &#123;</div><div class="line">                    codingData.push(&#123;</div><div class="line">                        text: item.customerNumber,</div><div class="line">                        id: item.id</div><div class="line">                    &#125;)</div><div class="line">                &#125;)</div><div class="line">                return &#123;</div><div class="line">                    results: codingData,</div><div class="line">                    pagination: &#123;</div><div class="line">                        more: (params.page * 30) &lt; data.total_count</div><div class="line">                    &#125;</div><div class="line">                &#125;;</div><div class="line">            &#125;,</div><div class="line">            cache: false,</div><div class="line">        &#125;,</div><div class="line">        minimumInputLength: 1,  //最少输入字符长度后查数据，</div><div class="line">    &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><em>级联多选注意：</em> <code>$(&quot;#name&quot;).val(null).trigger(&quot;change&quot;)</code>任然无法修改第一级多次选择后，二级任然存在一级选择后的所有选项。解决法案是：清除二级下面所有选项的文本节点就ok。<code>$(&#39;#second&#39;).html(&#39;&#39;);</code></p>
-<hr>
 <ul>
-<li><p>中文提示：</p>
-<p>如何将提示转成中文的：只需要在select2.js后引入zh_CN.js ，在<code>src/js/select2/i18n</code>。详见<a href="select2官网">select2官网</a>。然后设置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&apos;#js-select2-client&apos;).select2(&#123;language: &apos;zh_CN&apos;&#125;);   //这样即可</div></pre></td></tr></table></figure>
+<li>req.params: 解析 url 中的占位符，如 <code>/:name</code>，访问 /haha，req.params 的值为 <code>{name: &#39;haha&#39;}</code></li>
+</ul>
+<ul>
+<li><p>req.body<code>: 解析后请求体，需使用相关的模块，如 [body-parser](https://www.npmjs.com/package/body-parser)，请求体为</code>{“name”: “haha”}<code>，则 req.body 为</code>{name: ‘haha’}`</p>
+<h4 id="express-Router"><a href="#express-Router" class="headerlink" title="express.Router"></a>express.Router</h4><p>实际开发中路由可能繁多，最佳实践分别写在不同的文件下，只要将路由控制函数汇总到一个文件中即可。</p>
+<p>index：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</div><div class="line"><span class="keyword">var</span> app = express();</div><div class="line"><span class="keyword">var</span> indexRouter = <span class="built_in">require</span>(<span class="string">'./routes/index'</span>);</div><div class="line"><span class="keyword">var</span> userRouter = <span class="built_in">require</span>(<span class="string">'./routes/users'</span>);</div><div class="line"></div><div class="line">app.use(<span class="string">'/'</span>, indexRouter);</div><div class="line">app.use(<span class="string">'/users'</span>, userRouter);</div><div class="line"></div><div class="line">app.listen(<span class="number">3000</span>);</div></pre></td></tr></table></figure>
+<p>routers/users.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var express = require(&apos;express&apos;);</div><div class="line">var router = express.Router();</div><div class="line"></div><div class="line">router.get(&apos;/:name&apos;, function(req, res) &#123;</div><div class="line">  res.send(&apos;hello, &apos; + req.params.name);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">module.exports = router;</div></pre></td></tr></table></figure>
+<p>将/users/:name的路由放在routers/users.js，通过module.exports = router导出，再又index.js挂载到不同路径即可。</p>
 <p>​</p>
-<p>​</p>
-<p>​</p>
+<p>‘<a href="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg" target="_blank" rel="external">http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg</a>‘,<br>‘<a href="http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg" target="_blank" rel="external">http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg</a>‘,<br>‘<a href="http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg" target="_blank" rel="external">http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg</a>‘</p>
 </li>
 </ul>
 
@@ -249,19 +300,12 @@
     </div>
     <div id="post-footer" class="post-footer main-content-wrap">
         
-            <div class="post-footer-tags">
-                <span class="text-color-light text-small">ETIQUETADO EN</span><br/>
-                
-    <a class="tag tag--primary tag--small t-link" href="/tags/js/">js</a>
-
-            </div>
-        
         <div class="post-actions-wrap">
     <nav>
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/09/bind/"  data-tooltip="bind的用法详解">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">ANTERIOR</span>
@@ -269,7 +313,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/07/layoutHtml/" data-tooltip="常见的布局方式">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/11/30/css3-many-background/" data-tooltip="css3多背景图">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">SIGUIENTE</span>
                     <i class="fa fa-angle-right"></i>
@@ -284,17 +328,17 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://toringo.github.io/2016/10/09/select2/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://toringo.github.io/2016/12/20/7天学会nodejs/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://toringo.github.io/2016/10/09/select2/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://toringo.github.io/2016/12/20/7天学会nodejs/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://toringo.github.io/2016/10/09/select2/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://toringo.github.io/2016/12/20/7天学会nodejs/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -332,7 +376,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/09/bind/"  data-tooltip="bind的用法详解">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">ANTERIOR</span>
@@ -340,7 +384,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/07/layoutHtml/" data-tooltip="常见的布局方式">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/11/30/css3-many-background/" data-tooltip="css3多背景图">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">SIGUIENTE</span>
                     <i class="fa fa-angle-right"></i>
@@ -355,17 +399,17 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://toringo.github.io/2016/10/09/select2/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://toringo.github.io/2016/12/20/7天学会nodejs/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://toringo.github.io/2016/10/09/select2/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://toringo.github.io/2016/12/20/7天学会nodejs/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://toringo.github.io/2016/10/09/select2/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://toringo.github.io/2016/12/20/7天学会nodejs/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -385,17 +429,17 @@
                 <div id="share-options-bar" class="share-options-bar" data-behavior="3">
     <ul class="share-options">
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://toringo.github.io/2016/10/09/select2/">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://toringo.github.io/2016/12/20/7天学会nodejs/">
                 <i class="fa fa-google-plus"></i><span class="">Compartir en Google Plus</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://toringo.github.io/2016/10/09/select2/">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://toringo.github.io/2016/12/20/7天学会nodejs/">
                 <i class="fa fa-facebook-official"></i><span>Compartir en Facebook</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://toringo.github.io/2016/10/09/select2/">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://toringo.github.io/2016/12/20/7天学会nodejs/">
                 <i class="fa fa-twitter"></i><span>Compartir en Twitter</span>
             </a>
         </li>

@@ -11,16 +11,18 @@
     
     
     
-    <meta name="description" content="gulp中代码验证，在.eslintrc常用的配置规则：12345678910111213141516171819202122“parser”: &amp;quot;esprima&amp;quot; //默认，可以设置成babel-eslint，支持jsx“parseOptions”: &amp;#123;   //指定ECMA的版本及特性	&amp;quot;ecmaVersion&amp;quot;: 6, //指定ECMASc">
+    <meta name="description" content="gulp中代码验证，在.eslintrc常用的配置规则：">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="eslint随笔">
 <meta property="og:url" content="https://toringo.github.io/2016/11/29/eslint/index.html">
 <meta property="og:site_name" content="Toringo's blog">
-<meta property="og:description" content="gulp中代码验证，在.eslintrc常用的配置规则：12345678910111213141516171819202122“parser”: &amp;quot;esprima&amp;quot; //默认，可以设置成babel-eslint，支持jsx“parseOptions”: &amp;#123;   //指定ECMA的版本及特性	&amp;quot;ecmaVersion&amp;quot;: 6, //指定ECMASc">
-<meta property="og:updated_time" content="2016-11-29T10:27:08.000Z">
+<meta property="og:description" content="gulp中代码验证，在.eslintrc常用的配置规则：">
+<meta property="og:image" content="https://toringo.github.io/images/eslint.png">
+<meta property="og:updated_time" content="2016-12-15T13:46:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="eslint随笔">
-<meta name="twitter:description" content="gulp中代码验证，在.eslintrc常用的配置规则：12345678910111213141516171819202122“parser”: &amp;quot;esprima&amp;quot; //默认，可以设置成babel-eslint，支持jsx“parseOptions”: &amp;#123;   //指定ECMA的版本及特性	&amp;quot;ecmaVersion&amp;quot;: 6, //指定ECMASc">
+<meta name="twitter:description" content="gulp中代码验证，在.eslintrc常用的配置规则：">
+<meta name="twitter:image" content="https://toringo.github.io/images/eslint.png">
     
     
         
@@ -204,9 +206,9 @@
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <blockquote>
-<p>gulp中代码验证，在<code>.eslintrc</code>常用的配置规则：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">“parser”: &quot;esprima&quot; //默认，可以设置成babel-eslint，支持jsx</div><div class="line">“parseOptions”: &#123;   //指定ECMA的版本及特性</div><div class="line">	&quot;ecmaVersion&quot;: 6, //指定ECMAScript支持的版本，6为ES6</div><div class="line">    &quot;sourceType&quot;: &quot;module&quot;, //指定来源的类型，有两种”script”或”module”</div><div class="line">    &quot;ecmaFeatures&quot;: &#123;</div><div class="line">    	&quot;jsx&quot;: true//启动JSX</div><div class="line">     &#125;,</div><div class="line">&#125;</div><div class="line">“env”: &#123;    // 环境变量</div><div class="line">	&quot;browser&quot;: true,</div><div class="line">    &quot;node&quot;: true,</div><div class="line">    &quot;es6&quot;: true,</div><div class="line">    &quot;mocha&quot;: true</div><div class="line"></div><div class="line">&#125;</div><div class="line">“plugins”: [&quot;react&quot;]   // 允许第三方插件</div><div class="line">rules: &#123;</div><div class="line">	//Javascript code 校验</div><div class="line">	&quot;eqeqeq&quot;: &quot;off&quot;, //off = 0</div><div class="line">	&quot;curly&quot;: &quot;error&quot;, //error = 2</div><div class="line">	&quot;quotes&quot;: [&quot;warn&quot;, &quot;double&quot;], //warn = 1</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-</blockquote>
+            <p><img src="/images/eslint.png" alt="image"><br>gulp中代码验证，在<code>.eslintrc</code>常用的配置规则：</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">“parser”: &quot;esprima&quot; //默认，可以设置成babel-eslint，支持jsx</div><div class="line">“parseOptions”: &#123;   //指定ECMA的版本及特性</div><div class="line">	&quot;ecmaVersion&quot;: 6, //指定ECMAScript支持的版本，6为ES6</div><div class="line">    &quot;sourceType&quot;: &quot;module&quot;, //指定来源的类型，有两种”script”或”module”</div><div class="line">    &quot;ecmaFeatures&quot;: &#123;</div><div class="line">    	&quot;jsx&quot;: true//启动JSX</div><div class="line">     &#125;,</div><div class="line">&#125;</div><div class="line">“env”: &#123;    // 环境变量</div><div class="line">	&quot;browser&quot;: true,</div><div class="line">    &quot;node&quot;: true,</div><div class="line">    &quot;es6&quot;: true,</div><div class="line">    &quot;mocha&quot;: true</div><div class="line"></div><div class="line">&#125;</div><div class="line">“plugins”: [&quot;react&quot;]   // 允许第三方插件</div><div class="line">rules: &#123;</div><div class="line">	//Javascript code 校验</div><div class="line">	&quot;eqeqeq&quot;: &quot;off&quot;, //off = 0</div><div class="line">	&quot;curly&quot;: &quot;error&quot;, //error = 2</div><div class="line">	&quot;quotes&quot;: [&quot;warn&quot;, &quot;double&quot;], //warn = 1</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>校验规则中： 0代码错误不提示；1：代表警告提醒但不影响现有编译；2：error会抛出错误。</p>
 
             
@@ -226,7 +228,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/11/29/test/"  data-tooltip="辨析 javascript 中对象和类的区别和联系">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/11/29/linux/"  data-tooltip="Linux常用命令">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">ANTERIOR</span>
@@ -234,7 +236,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/11/27/css3/" data-tooltip="css3奇技淫巧">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/11/29/input:checked/" data-tooltip="input单选和多选的优化">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">SIGUIENTE</span>
                     <i class="fa fa-angle-right"></i>
@@ -297,7 +299,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/11/29/test/"  data-tooltip="辨析 javascript 中对象和类的区别和联系">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/11/29/linux/"  data-tooltip="Linux常用命令">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">ANTERIOR</span>
@@ -305,7 +307,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/11/27/css3/" data-tooltip="css3奇技淫巧">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/11/29/input:checked/" data-tooltip="input单选和多选的优化">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">SIGUIENTE</span>
                     <i class="fa fa-angle-right"></i>
