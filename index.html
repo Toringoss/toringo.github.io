@@ -182,14 +182,89 @@
 <section class="postShorten-group main-content-wrap">
     
     
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2017/01/15/moment/">
+                            moment的常见用法
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2017-01-15T11:41:01+08:00">
+	
+		    15 Jan 2017
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p><img src="/images/moment.png" alt="image"><br>时间操作利器———momentJs。常见的用法总结。<br>
+                    
+                        <a href="/2017/01/15/moment/" class="postShorten-excerpt_link link">
+                            Seguir leyendo
+                        </a>
+                        
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/12/31/2016年工作总结/">
+                            2016年工作总结
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-12-31T13:53:10+08:00">
+	
+		    31 Dec 2016
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p><img src="/images/2016.png" alt="image"></p>
+<p>飞快的2016。。。</p>
+                    
+                        <a href="/2016/12/31/2016年工作总结/" class="postShorten-excerpt_link link">
+                            Seguir leyendo
+                        </a>
+                        
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
         <div class="postShorten-wrap">
             
             <div class="postShorten-header">
                 <h1 class="postShorten-title" itemprop="headline">
                     
                         <a class="link-unstyled" href="/2016/12/20/7天学会nodejs/">
-                            (sin título)
+                            nodejs
                         </a>
                     
                 </h1>
@@ -204,65 +279,14 @@
 
             </div>
             
-                <div class="postShorten-content" itemprop="articleBody">
-                    <h2 id="nodejs"><a href="#nodejs" class="headerlink" title="nodejs"></a>nodejs</h2><ul>
-<li><p>exports和module.exports的区别</p>
-<ul>
-<li>module.exports 初始值为一个空对象 {}</li>
-<li>exports 是指向的 module.exports 的引用</li>
-<li>require() 返回的是 module.exports 而不是 exports</li>
-</ul>
-</li>
-<li><p>npm需要注意的：</p>
-<ul>
-<li><p>-S ：等价于 –save</p>
-</li>
-<li><p>npm i 等价于 nam install</p>
-</li>
-<li><p>npm i express –save –save-exact，可以将版本号写入dependencies，推荐写法；</p>
-<p>运行以下命令，在以后的安装中都会锁定版本号，相当于加了–save-exact；<br>npm config set save-exact true。（<code>npm config set</code> 命令将配置写到了 ~/.npmrc 文件，运行 <code>npm config list</code> 查看。）</p>
-</li>
-<li><p>npm script 提供了强大的缩写命令功能，如<code>npm start</code> 等价于 <code>npm run start</code>；<code>npm test</code> 等价于 <code>npm run test</code></p>
-</li>
-<li><p>运行npm shrinkwrap会生成npm-shrinkwrap.json，将版本锁定，则运行 <code>npm install</code> 的时候会优先使用 npm-shrinkwrap.json 进行安装，没有则使用 package.json 进行安装。ps：如果node_modules下存在的某个模块在package.json中没有，运行npm shrinkwrap会报错，另外，<code>npm shrinkwrap</code> 只会生成 dependencies 的依赖，不会生成 devDependencies 的。</p>
-</li>
-<li><p>supervisor和nodemon，supervisor和nodemon 会监听当前目录下 node 和 js 后缀的文件，当这些文件发生改动时，supervisor 会自动重启程序；如supervisor –harmony index, nodemon —exec babel-node ./</p>
-</li>
-</ul>
-</li>
-<li><p>express</p>
-<h5 id="先启一个简单node服务："><a href="#先启一个简单node服务：" class="headerlink" title="先启一个简单node服务："></a>先启一个简单node服务：</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</div><div class="line"><span class="keyword">var</span> app = express();</div><div class="line"></div><div class="line">app.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</div><div class="line">  res.send(<span class="string">'hello, express'</span>);</div><div class="line">&#125;);</div><div class="line"><span class="comment">// 路由， name为占位符，可通过req.params.name获取name的值</span></div><div class="line">app.get(<span class="string">'/users/:name'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</div><div class="line">  res.send(<span class="string">'hello, '</span> + req.params.name);</div><div class="line">&#125;);</div><div class="line">	</div><div class="line">app.listen(<span class="number">3000</span>);</div></pre></td></tr></table></figure>
-<p>req 包含了请求来的相关信息，常用的req属性：</p>
-<ul>
-<li>req.query: 解析后的 url 中的 querystring，如 <code>?name=haha</code>，req.query 的值为 <code>{name: &#39;haha&#39;}</code></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>req.params: 解析 url 中的占位符，如 <code>/:name</code>，访问 /haha，req.params 的值为 <code>{name: &#39;haha&#39;}</code></li>
-</ul>
-<ul>
-<li><p>req.body<code>: 解析后请求体，需使用相关的模块，如 [body-parser](https://www.npmjs.com/package/body-parser)，请求体为</code>{“name”: “haha”}<code>，则 req.body 为</code>{name: ‘haha’}`</p>
-<h4 id="express-Router"><a href="#express-Router" class="headerlink" title="express.Router"></a>express.Router</h4><p>实际开发中路由可能繁多，最佳实践分别写在不同的文件下，只要将路由控制函数汇总到一个文件中即可。</p>
-<p>index：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</div><div class="line"><span class="keyword">var</span> app = express();</div><div class="line"><span class="keyword">var</span> indexRouter = <span class="built_in">require</span>(<span class="string">'./routes/index'</span>);</div><div class="line"><span class="keyword">var</span> userRouter = <span class="built_in">require</span>(<span class="string">'./routes/users'</span>);</div><div class="line"></div><div class="line">app.use(<span class="string">'/'</span>, indexRouter);</div><div class="line">app.use(<span class="string">'/users'</span>, userRouter);</div><div class="line"></div><div class="line">app.listen(<span class="number">3000</span>);</div></pre></td></tr></table></figure>
-<p>routers/users.js</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var express = require(&apos;express&apos;);</div><div class="line">var router = express.Router();</div><div class="line"></div><div class="line">router.get(&apos;/:name&apos;, function(req, res) &#123;</div><div class="line">  res.send(&apos;hello, &apos; + req.params.name);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">module.exports = router;</div></pre></td></tr></table></figure>
-<p>将/users/:name的路由放在routers/users.js，通过module.exports = router导出，再又index.js挂载到不同路径即可。</p>
-<p>​</p>
-<p>‘<a href="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg" target="_blank" rel="external">http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg</a>‘,<br>‘<a href="http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg" target="_blank" rel="external">http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg</a>‘,<br>‘<a href="http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg" target="_blank" rel="external">http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg</a>‘</p>
-</li>
-</ul>
-
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p><img src="/images/nodejs.png" alt="image"></p>
+<p>进击nodejs开始。。。<br>
                     
+                        <a href="/2016/12/20/7天学会nodejs/" class="postShorten-excerpt_link link">
+                            Seguir leyendo
+                        </a>
                         
-                    
-                    
-                        <p>
-                            <a href="/2016/12/20/7天学会nodejs/#post-footer" class="postShorten-excerpt_link link">
-                                Comentar y compartir
-                            </a>
-                        </p>
                     
                 </div>
             
@@ -369,8 +393,8 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title" itemprop="headline">
                     
-                        <a class="link-unstyled" href="/2016/11/29/test/">
-                            辨析 javascript 中对象和类的区别和联系
+                        <a class="link-unstyled" href="/2016/11/29/input:checked/">
+                            input单选和多选的优化
                         </a>
                     
                 </h1>
@@ -386,9 +410,12 @@
             </div>
             
                 <div class="postShorten-excerpt" itemprop="articleBody">
-                    <p>许多同学在JavaScript开发当中会经常碰到对象和类混淆的问题，不得不说JavaScript是一门被人们忽视了的强大脚本语言。</p>
+                    <blockquote>
+<p>css单选和多选样式优化，应用场景，在IE浏览器中，如果不优化单选和多选的样式会毁掉你所有，不止，UI会干死你，产品会发飙，老板会扣工资，，，总之，不然它真的丑爆了。。。</p>
+</blockquote>
+<hr>
                     
-                        <a href="/2016/11/29/test/" class="postShorten-excerpt_link link">
+                        <a href="/2016/11/29/input:checked/" class="postShorten-excerpt_link link">
                             Seguir leyendo
                         </a>
                         
@@ -488,8 +515,8 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title" itemprop="headline">
                     
-                        <a class="link-unstyled" href="/2016/11/29/input:checked/">
-                            input单选和多选的优化
+                        <a class="link-unstyled" href="/2016/11/29/test/">
+                            辨析 javascript 中对象和类的区别和联系
                         </a>
                     
                 </h1>
@@ -505,12 +532,9 @@
             </div>
             
                 <div class="postShorten-excerpt" itemprop="articleBody">
-                    <blockquote>
-<p>css单选和多选样式优化，应用场景，在IE浏览器中，如果不优化单选和多选的样式会毁掉你所有，不止，UI会干死你，产品会发飙，老板会扣工资，，，总之，不然它真的丑爆了。。。</p>
-</blockquote>
-<hr>
+                    <p>许多同学在JavaScript开发当中会经常碰到对象和类混淆的问题，不得不说JavaScript是一门被人们忽视了的强大脚本语言。</p>
                     
-                        <a href="/2016/11/29/input:checked/" class="postShorten-excerpt_link link">
+                        <a href="/2016/11/29/test/" class="postShorten-excerpt_link link">
                             Seguir leyendo
                         </a>
                         
@@ -564,84 +588,6 @@
         
     </article>
     
-    
-    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2016/11/20/path/">
-                            node环境中几种路径
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2016-11-20T18:29:51+08:00">
-	
-		    20 Nov 2016
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-excerpt" itemprop="articleBody">
-                    <blockquote>
-<p>在研究webpack是遇到文件路径的问题。</p>
-</blockquote>
-                    
-                        <a href="/2016/11/20/path/" class="postShorten-excerpt_link link">
-                            Seguir leyendo
-                        </a>
-                        
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2016/11/17/es6/">
-                            es6常见的变量解构，对象的合并
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2016-11-17T07:42:59+08:00">
-	
-		    17 Nov 2016
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-excerpt" itemprop="articleBody">
-                    <blockquote>
-<p>开发的过程中，尤其是在处理react中reducer或者将获取到的参数合并到一个对象中去，es6的信誉发带来了极大便利。</p>
-</blockquote>
-                    
-                        <a href="/2016/11/17/es6/" class="postShorten-excerpt_link link">
-                            Seguir leyendo
-                        </a>
-                        
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
     <div class="pagination-bar">
     <ul class="pagination">
         
@@ -662,7 +608,7 @@
 
                 <footer id="footer" class="main-content-wrap">
     <span class="copyrights">
-        Copyrights &copy; 2016 Toringo. All Rights Reserved.
+        Copyrights &copy; 2017 Toringo. All Rights Reserved.
     </span>
 </footer>
 

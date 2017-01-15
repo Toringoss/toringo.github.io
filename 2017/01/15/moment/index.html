@@ -1,0 +1,477 @@
+
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Toringo&#39;s blog">
+    <title>moment的常见用法 - Toringo&#39;s blog</title>
+    <meta name="author" content="Toringo">
+    
+    
+    
+    <meta name="description" content="时间操作利器———momentJs。常见的用法总结。">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="moment的常见用法">
+<meta property="og:url" content="https://toringo.github.io/2017/01/15/moment/index.html">
+<meta property="og:site_name" content="Toringo's blog">
+<meta property="og:description" content="时间操作利器———momentJs。常见的用法总结。">
+<meta property="og:image" content="https://toringo.github.io/images/moment.png">
+<meta property="og:updated_time" content="2017-01-15T05:37:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="moment的常见用法">
+<meta name="twitter:description" content="时间操作利器———momentJs。常见的用法总结。">
+<meta name="twitter:image" content="https://toringo.github.io/images/moment.png">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="https://toringo.github.io/assets/images/champion.png"/>
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-nuvue6sithwirecbhvw3dkaobiojqvtadsnhguwi7k04xklybw5djl1smadp.min.css">
+    <!--STYLES END-->
+    
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-85099518-1']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+<header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Toringo&#39;s blog</a>
+    </h1>
+    
+        
+            <a  class="header-right-icon open-algolia-search"
+                href="#search">
+        
+        
+            <i class="fa fa-lg fa-search"></i>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+
+        
+    
+
+<nav id="sidebar" data-behavior="3">
+    
+        <div class="sidebar-profile">
+            <a href="/#about">
+                    <img class="sidebar-profile-picture" src="/assets/images/champion.png"/>
+            </a>
+            <span class="sidebar-profile-name">Toringo</span>
+        </div>
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Inicio</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categorías</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Etiquetas</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archivos</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">Acerca de</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://github.com/guotao007" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+                    <span class="sidebar-button-desc">GitHub</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="mailto:dashentao007@163.com" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-envelope-o"></i>
+                    <span class="sidebar-button-desc">Correo</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="3"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            moment的常见用法
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" datetime="2017-01-15T11:41:01+08:00">
+	
+		    15 Jan 2017
+    	
+    </time>
+    
+</div>
+
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p><img src="/images/moment.png" alt="image"><br>时间操作利器———momentJs。常见的用法总结。<br><a id="more"></a></p>
+<h3 id="格式化"><a href="#格式化" class="headerlink" title="格式化"></a>格式化</h3><p>number: 当前时间的毫秒数；<br><code>moment(number).format(&#39;YYYY-MM-DD HH:mm&#39;);</code></p>
+<h3 id="取值"><a href="#取值" class="headerlink" title="取值"></a>取值</h3><ul>
+<li>年： moment().year();</li>
+<li>月： moment().get(‘month’);  // 0 to 11</li>
+<li>日： moment().get(‘date’);</li>
+<li>小时： moment().get(‘hour’);</li>
+<li>分： moment().get(‘minute’);</li>
+<li>秒： moment().get(‘second’);</li>
+<li>毫秒：moment().get(‘millisecond’);<br><strong>以上都写法和moment().month().moment.year()等价</strong>；</li>
+<li>星期几： moment().day()；// 0-6 moment().isoWeekday();  //1-7</li>
+<li>某个月有多少天：moment().daysInMonth();</li>
+<li>一周的第几天是哪一天： moment().isoWeekday(number).format(‘YYYY-MM-DD’)</li>
+<li>一年的第多少天：moment().dayOfYear(number)； moment().dayOfYear(number)设置为第多少天</li>
+<li>一年中的第几周： moment.week(); moment.week(number)设置为第几周  </li>
+<li>一年中有多少周： moment().weeksInYear();</li>
+<li>季度： moment().quarter(); // Number    moment().quarter(Number);  </li>
+</ul>
+<h3 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a>赋值</h3><ul>
+<li>年：moment().set(‘year’, 2013);</li>
+<li>月： moment().set(‘month’, 3);  // April</li>
+<li>日： moment().set(‘date’, 1);</li>
+<li>小时： moment().set(‘hour’, 13);</li>
+<li>分钟：moment().set(‘minute’, 20);</li>
+<li>秒 moment().set(‘second’, 30);</li>
+<li>毫秒 moment().set(‘millisecond’, 123);</li>
+<li>对象的形式赋值： moment().set({‘year’: 2013, ‘month’: 3});</li>
+</ul>
+<h3 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h3><ul>
+<li>加法：moment().add(number, ‘days/d/month/year/week….’)</li>
+<li>减法：moment.subtract(number, ‘day/d/month/year/week….’)</li>
+<li>开始时间：<ul>
+<li>某一周的第一天： moment().startOf(‘isoWeek’).format(‘YYYY-MM-DD’)</li>
+<li>某一月的第一天： moment().startOf(‘month’).format(‘YYYY-MM-DD’)<br>…</li>
+</ul>
+</li>
+<li>结束时间：<ul>
+<li>某一周的最后一天： moment().endOf(‘isoWeek’).format(‘YYYY-MM-DD’)</li>
+<li>某一月的最后一天： moment().endOf(‘month’).format(‘YYYY-MM-DD’)  </li>
+</ul>
+</li>
+<li><p>时差：</p>
+<ul>
+<li>时差 (之后，现在为基准)：moment([2007, 0, 29]).fromNow(boolean); // 10 years ago</li>
+<li>时差 (之后，现在为基准)：moment([2017, 0, 29]).toNow(boolean); // in 10 years</li>
+<li>时差：    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var a = moment([2007, 0, 28]);  </div><div class="line">var b = moment([2007, 0, 29]);  </div><div class="line">a.from(b) // &quot;a day ago&quot;   a.to(b); // &apos;in a day&apos;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>日历时间：  moment().calendar();</p>
+</li>
+<li>将时间转换成array： moment().toArray(); //[2017, 0, 15, 13, 24, 14, 95];</li>
+<li>将时间转换成object： moment(- ).toObject(); //{years: 2017, months: 0, date: 15, hours: 13, minutes: 25…}</li>
+<li>是否 Moment 对象: moment.isMoment(moment());  // true</li>
+<li><p>语言设置(国际化): </p>
+<ul>
+<li>全局： moment.locale(‘zh_cn’);</li>
+<li>局部： moment().locale(String);</li>
+</ul>
+</li>
+<li><p>列出所有月份的名称和所有周的每一天：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">moment.months()</div><div class="line">moment.monthsShort()</div><div class="line">moment.weekdays()</div><div class="line">moment.weekdaysShort()</div><div class="line">moment.weekdaysMin()</div></pre></td></tr></table></figure>
+</li>
+</ul>
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">ETIQUETADO EN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/moment/">moment</a>
+
+            </div>
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">ANTERIOR</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/12/31/2016年工作总结/" data-tooltip="2016年工作总结">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">SIGUIENTE</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://toringo.github.io/2017/01/15/moment/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://toringo.github.io/2017/01/15/moment/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://toringo.github.io/2017/01/15/moment/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2017 Toringo. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">ANTERIOR</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/12/31/2016年工作总结/" data-tooltip="2016年工作总结">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">SIGUIENTE</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://toringo.github.io/2017/01/15/moment/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://toringo.github.io/2017/01/15/moment/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://toringo.github.io/2017/01/15/moment/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://toringo.github.io/2017/01/15/moment/">
+                <i class="fa fa-google-plus"></i><span class="">Compartir en Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://toringo.github.io/2017/01/15/moment/">
+                <i class="fa fa-facebook-official"></i><span>Compartir en Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://toringo.github.io/2017/01/15/moment/">
+                <i class="fa fa-twitter"></i><span>Compartir en Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        
+
+
+    
+        
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="/assets/images/champion.png"/>
+        
+            <h4 id="about-card-name">Toringo</h4>
+        
+            <h5 id="about-card-bio"><p>author.bio</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </h5>
+        
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script-i4qo6jx6jji9fg0dftpya6ivemizsbow4fhow76d8dwpm7m1wbvi378ssumx.min.js"></script>
+<!--SCRIPTS END-->
+
+    
+
+
+
+</html>

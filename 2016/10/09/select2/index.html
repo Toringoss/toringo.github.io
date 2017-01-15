@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="Toringo's blog">
 <meta property="og:description" content="select2兼容性好，是兼多选、搜索、添加和兼容性（IE7+）等功能的优秀的基于jQuery的选择框插件。​">
 <meta property="og:image" content="https://toringo.github.io/images/select2.png">
-<meta property="og:updated_time" content="2016-12-27T09:14:12.000Z">
+<meta property="og:updated_time" content="2017-01-15T03:46:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="项目中常用的select2用法">
 <meta name="twitter:description" content="select2兼容性好，是兼多选、搜索、添加和兼容性（IE7+）等功能的优秀的基于jQuery的选择框插件。​">
@@ -237,11 +237,15 @@
 <ul>
 <li><p>中文提示：</p>
 <p>如何将提示转成中文的：只需要在select2.js后引入zh_CN.js ，在<code>src/js/select2/i18n</code>。详见<a href="select2官网">select2官网</a>。然后设置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&apos;#js-select2-client&apos;).select2(&#123;language: &apos;zh_CN&apos;&#125;);   //这样即可</div></pre></td></tr></table></figure>
-<p>​</p>
-<p>​</p>
-<p>​</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#js-select2-client'</span>).select2(&#123;<span class="attr">language</span>: <span class="string">'zh_CN'</span>&#125;);   <span class="comment">//这样即可</span></div></pre></td></tr></table></figure>
 </li>
+<li><p>选中后提示：</p>
+</li>
+</ul>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$(&apos;#js-select2&apos;).select2(&#123;</div><div class="line">  placeholder: &apos;提示&apos;,   //必填否则出现异常情况</div><div class="line">  allownClear: true,</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>  ​</p>
+<ul>
+<li></li>
 </ul>
 
             
@@ -320,7 +324,7 @@
 
                 <footer id="footer" class="main-content-wrap">
     <span class="copyrights">
-        Copyrights &copy; 2016 Toringo. All Rights Reserved.
+        Copyrights &copy; 2017 Toringo. All Rights Reserved.
     </span>
 </footer>
 

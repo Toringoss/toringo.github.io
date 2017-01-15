@@ -6,63 +6,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Toringo&#39;s blog">
-    <title> - Toringo&#39;s blog</title>
+    <title>nodejs - Toringo&#39;s blog</title>
     <meta name="author" content="Toringo">
     
     
     
-    <meta name="description" content="nodejs
-exports和module.exports的区别
-
-module.exports 初始值为一个空对象 {}
-exports 是指向的 module.exports 的引用
-require() 返回的是 module.exports 而不是 exports
-
-
-npm需要注意的：
-
--S ：等价于 –save
-
-npm i 等价于 nam install
-
-npm i express">
+    <meta name="description" content="进击nodejs开始。。。">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="Toringo's blog">
+<meta property="og:title" content="nodejs">
 <meta property="og:url" content="https://toringo.github.io/2016/12/20/7天学会nodejs/index.html">
 <meta property="og:site_name" content="Toringo's blog">
-<meta property="og:description" content="nodejs
-exports和module.exports的区别
-
-module.exports 初始值为一个空对象 {}
-exports 是指向的 module.exports 的引用
-require() 返回的是 module.exports 而不是 exports
-
-
-npm需要注意的：
-
--S ：等价于 –save
-
-npm i 等价于 nam install
-
-npm i express">
-<meta property="og:updated_time" content="2016-12-21T15:40:16.000Z">
+<meta property="og:description" content="进击nodejs开始。。。">
+<meta property="og:image" content="https://toringo.github.io/images/nodejs.png">
+<meta property="og:updated_time" content="2016-12-31T05:52:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Toringo's blog">
-<meta name="twitter:description" content="nodejs
-exports和module.exports的区别
-
-module.exports 初始值为一个空对象 {}
-exports 是指向的 module.exports 的引用
-require() 返回的是 module.exports 而不是 exports
-
-
-npm需要注意的：
-
--S ：等价于 –save
-
-npm i 等价于 nam install
-
-npm i express">
+<meta name="twitter:title" content="nodejs">
+<meta name="twitter:description" content="进击nodejs开始。。。">
+<meta name="twitter:image" content="https://toringo.github.io/images/nodejs.png">
     
     
         
@@ -230,7 +190,7 @@ npm i express">
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title" itemprop="headline">
-            (sin título)
+            nodejs
         </h1>
     
     <div class="post-meta">
@@ -246,7 +206,9 @@ npm i express">
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <h2 id="nodejs"><a href="#nodejs" class="headerlink" title="nodejs"></a>nodejs</h2><ul>
+            <p><img src="/images/nodejs.png" alt="image"></p>
+<p>进击nodejs开始。。。<br><a id="more"></a></p>
+<ul>
 <li><p>exports和module.exports的区别</p>
 <ul>
 <li>module.exports 初始值为一个空对象 {}</li>
@@ -286,14 +248,13 @@ npm i express">
 <li><p>req.body<code>: 解析后请求体，需使用相关的模块，如 [body-parser](https://www.npmjs.com/package/body-parser)，请求体为</code>{“name”: “haha”}<code>，则 req.body 为</code>{name: ‘haha’}`</p>
 <h4 id="express-Router"><a href="#express-Router" class="headerlink" title="express.Router"></a>express.Router</h4><p>实际开发中路由可能繁多，最佳实践分别写在不同的文件下，只要将路由控制函数汇总到一个文件中即可。</p>
 <p>index：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</div><div class="line"><span class="keyword">var</span> app = express();</div><div class="line"><span class="keyword">var</span> indexRouter = <span class="built_in">require</span>(<span class="string">'./routes/index'</span>);</div><div class="line"><span class="keyword">var</span> userRouter = <span class="built_in">require</span>(<span class="string">'./routes/users'</span>);</div><div class="line"></div><div class="line">app.use(<span class="string">'/'</span>, indexRouter);</div><div class="line">app.use(<span class="string">'/users'</span>, userRouter);</div><div class="line"></div><div class="line">app.listen(<span class="number">3000</span>);</div></pre></td></tr></table></figure>
-<p>routers/users.js</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var express = require(&apos;express&apos;);</div><div class="line">var router = express.Router();</div><div class="line"></div><div class="line">router.get(&apos;/:name&apos;, function(req, res) &#123;</div><div class="line">  res.send(&apos;hello, &apos; + req.params.name);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">module.exports = router;</div></pre></td></tr></table></figure>
-<p>将/users/:name的路由放在routers/users.js，通过module.exports = router导出，再又index.js挂载到不同路径即可。</p>
-<p>​</p>
-<p>‘<a href="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg" target="_blank" rel="external">http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg</a>‘,<br>‘<a href="http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg" target="_blank" rel="external">http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg</a>‘,<br>‘<a href="http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg" target="_blank" rel="external">http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg</a>‘</p>
 </li>
 </ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</div><div class="line"><span class="keyword">var</span> app = express();</div><div class="line"><span class="keyword">var</span> indexRouter = <span class="built_in">require</span>(<span class="string">'./routes/index'</span>);</div><div class="line"><span class="keyword">var</span> userRouter = <span class="built_in">require</span>(<span class="string">'./routes/users'</span>);</div><div class="line"></div><div class="line">app.use(<span class="string">'/'</span>, indexRouter);</div><div class="line">app.use(<span class="string">'/users'</span>, userRouter);</div><div class="line"></div><div class="line">app.listen(<span class="number">3000</span>);</div></pre></td></tr></table></figure>
+<p>  routers/users.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</div><div class="line"><span class="keyword">var</span> router = express.Router();</div><div class="line"></div><div class="line">router.get(<span class="string">'/:name'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</div><div class="line">  res.send(<span class="string">'hello, '</span> + req.params.name);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = router;</div></pre></td></tr></table></figure>
+<p>  将/users/:name的路由放在routers/users.js，通过module.exports = router导出，再又index.js挂载到不同路径即可。</p>
+<p>  ‘<a href="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg" target="_blank" rel="external">http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg</a>‘,<br>  ‘<a href="http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg" target="_blank" rel="external">http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg</a>‘,<br>  ‘<a href="http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg" target="_blank" rel="external">http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg</a>‘</p>
 
             
         </div>
@@ -305,7 +266,7 @@ npm i express">
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--disabled">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/12/31/2016年工作总结/"  data-tooltip="2016年工作总结">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">ANTERIOR</span>
@@ -364,7 +325,7 @@ npm i express">
 
                 <footer id="footer" class="main-content-wrap">
     <span class="copyrights">
-        Copyrights &copy; 2016 Toringo. All Rights Reserved.
+        Copyrights &copy; 2017 Toringo. All Rights Reserved.
     </span>
 </footer>
 
@@ -376,7 +337,7 @@ npm i express">
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--disabled">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/12/31/2016年工作总结/"  data-tooltip="2016年工作总结">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">ANTERIOR</span>
